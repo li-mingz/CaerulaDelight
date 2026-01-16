@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caerula_delight:item/sea_terror_cutlet"
+  }
+}

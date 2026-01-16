@@ -1,4 +1,8 @@
 {
   "itemGroup.caerula_delight": "海嗣乐事",
-  "item.caerula_delight.rotten_foam": "“腐朽泡沫”"
+  "item.caerula_delight.rotten_foam": "“腐朽泡沫”",
+  "item.caerula_delight.sea_terror_cutlet": "恐鱼排",
+  "item.caerula_delight.cooked_sea_terror_cutlet": "熟恐鱼排",
+  "item.caerula_delight.sea_terror_cutlet_strips": "恐鱼排切片",
+  "item.caerula_delight.cooked_sea_terror_cutlet_strips": "熟恐鱼排切片"
 }
