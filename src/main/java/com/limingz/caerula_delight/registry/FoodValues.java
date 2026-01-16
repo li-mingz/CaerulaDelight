@@ -11,12 +11,19 @@ public class FoodValues {
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.SANITY_IMMUE.get(), 6000, 0), 1.0F)
             .build();
+    public static final FoodProperties SEA_TERROR_BLOOD = (new FoodProperties.Builder())
+            .nutrition(1)
+            .saturationMod(0.3f)
+            .alwaysEat()
+            .build();
+
+
     public static final FoodProperties SEA_TERROR_CUTLET = (new FoodProperties.Builder())
-            .nutrition(4).saturationMod(1.2f).meat().build();
+            .nutrition(4).saturationMod(0.3f).meat().build();
     public static final FoodProperties COOKED_SEA_TERROR_CUTLET = (new FoodProperties.Builder())
-            .nutrition(6).saturationMod(9.6f).meat().build();
+            .nutrition(6).saturationMod(0.8f).meat().build();
     public static final FoodProperties SEA_TERROR_CUTLET_STRIPS = (new FoodProperties.Builder())
-            .nutrition(2).saturationMod(0.6f).meat().build();
+            .nutrition(1).saturationMod(0.3f).meat().fast().build();
     public static final FoodProperties COOKED_SEA_TERROR_CUTLET_STRIPS = (new FoodProperties.Builder())
-            .nutrition(3).saturationMod(4.8f).meat().build();
+			.nutrition(3).saturationMod(0.8f).meat().fast().build();
 }

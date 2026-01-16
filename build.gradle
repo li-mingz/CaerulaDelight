@@ -135,6 +135,10 @@ repositories {
     //     dir 'libs'
     // }
     maven {
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
         content {
@@ -184,6 +188,10 @@ dependencies {
 
     compileOnly fg.deobf("local:FarmersDelight-1.20.1:${farmers_delight_version}")
     runtimeOnly fg.deobf("local:FarmersDelight-1.20.1:${farmers_delight_version}")
+
+    // 测试环境用来测试的mod
+    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.129")
+    runtimeOnly fg.deobf("local:appleskin-forge-mc1.20.1:2.5.1")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
