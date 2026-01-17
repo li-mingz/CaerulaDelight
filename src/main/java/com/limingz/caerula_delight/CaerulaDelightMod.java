@@ -1,6 +1,7 @@
 package com.limingz.caerula_delight;
 
 import com.limingz.caerula_delight.registry.ModCreativeTabs;
+import com.limingz.caerula_delight.registry.ModLootModifiers;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,5 +27,6 @@ public class CaerulaDelightMod
 
         RegisterItems.ITEMS.register(modEventBus);
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
     }
 }

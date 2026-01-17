@@ -25,5 +25,8 @@ public class DataGenerators
         ExistingFileHelper helper = event.getExistingFileHelper();
 
         generator.addProvider(event.includeServer(), new Recipes(output));
+        generator.addProvider(event.includeServer(), new ModEntityTagsProvider(output, lookupProvider, helper));
+        generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(output));
+
     }
 }
