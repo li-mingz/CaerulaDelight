@@ -11,12 +11,21 @@ public class FoodValues {
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.SANITY_IMMUE.get(), 6000, 0), 1.0F)
             .build();
+
     public static final FoodProperties SEA_TERROR_BLOOD = (new FoodProperties.Builder())
+            .alwaysEat()
+            .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.SANITY_IMMUE.get(), 6000, 0), 1.0F)
             .nutrition(1)
             .saturationMod(0.3f)
-            .alwaysEat()
             .build();
 
+
+    public static final FoodProperties GLOW_SEA_PUDDING = (new FoodProperties.Builder())
+            .alwaysEat()
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 1800, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.NIGHT_VISION, 1800, 0), 1.0F)
+            .nutrition(3).saturationMod(0.8f).build();
 
     public static final FoodProperties SEA_TERROR_CUTLET = (new FoodProperties.Builder())
             .nutrition(4).saturationMod(0.3f).meat().build();

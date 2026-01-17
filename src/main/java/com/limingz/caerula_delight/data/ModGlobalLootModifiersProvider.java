@@ -5,15 +5,14 @@ import com.limingz.caerula_delight.loot.AddItemModifier;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.core.registries.Registries;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
+import net.mcreator.caerulaarbor.init.CaerulaArborModEntities;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifiersProvider(PackOutput output) {
@@ -22,19 +21,32 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
-        TagKey<EntityType<?>> SEA_TERROR_CUTLET_DROPPERS = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(CaerulaDelightMod.MODID, "sea_terror_cutlet_droppers"));
-
         var seaTerrorCutletItem = RegisterItems.SEA_TERROR_CUTLET.get();
 
-        add("sea_terror_cutlet_from_sea_terror", new AddItemModifier(
-                new LootItemCondition[]{
-                        LootItemEntityPropertyCondition.hasProperties(
-                                LootContext.EntityTarget.THIS,
-                                EntityPredicate.Builder.entity().of(SEA_TERROR_CUTLET_DROPPERS)
-                        ).build(),
-                        LootItemRandomChanceCondition.randomChance(0.6f).build()
-                },
-                seaTerrorCutletItem
-        ));
+        RegistryObject<EntityType<?>>[] entities = new RegistryObject[]{
+                CaerulaArborModEntities.PREDATOR_ABYSSAL,
+                CaerulaArborModEntities.SPLASHER_ABYSSAL,
+                CaerulaArborModEntities.RUN_FISH,
+                CaerulaArborModEntities.SLIDER_FISH,
+                CaerulaArborModEntities.SHOOTER_FISH,
+                CaerulaArborModEntities.FLY_FISH,
+                CaerulaArborModEntities.FLOATER_PROKARYOTE,
+                CaerulaArborModEntities.ACCUMULATOR_PROKARYOTE,
+                CaerulaArborModEntities.FEEDER_PROKARYOTE,
+                CaerulaArborModEntities.DEPOSITER_PROKARYOTE
+        };
+
+        for (RegistryObject<EntityType<?>> entity : entities) {
+            add("sea_terror_cutlet_from_" + entity.getId().getPath(), new AddItemModifier(
+                    new LootItemCondition[]{
+                            LootItemEntityPropertyCondition.hasProperties(
+                                    LootContext.EntityTarget.THIS,
+                                    EntityPredicate.Builder.entity().of(entity.get())
+                            ).build(),
+                            LootItemRandomChanceCondition.randomChance(0.6f).build()
+                    },
+                    seaTerrorCutletItem
+            ));
+        }
     }
 }

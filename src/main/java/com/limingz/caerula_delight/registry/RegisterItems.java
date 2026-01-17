@@ -2,6 +2,7 @@ package com.limingz.caerula_delight.registry;
 
 import com.google.common.collect.Sets;
 import com.limingz.caerula_delight.CaerulaDelightMod;
+import com.limingz.caerula_delight.item.GlowSeaPuddingItem;
 import com.limingz.caerula_delight.item.SeaTerrorBloodItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,8 +26,12 @@ public class RegisterItems {
         return block;
     }
 
+    public static final RegistryObject<Item> GLOW_SEA_PUDDING = registerWithTab("glow_sea_pudding",
+            () -> new GlowSeaPuddingItem(foodItem(FoodValues.GLOW_SEA_PUDDING)));
+
     public static final RegistryObject<Item> ROTTEN_FOAM = registerWithTab("rotten_foam",
             () -> new DrinkableItem(drinkItem().food(FoodValues.ROTTEN_FOAM), true, false));
+
     public static final RegistryObject<Item> SEA_TERROR_BLOOD = registerWithTab("sea_terror_blood",
             () -> new SeaTerrorBloodItem(drinkItem().food(FoodValues.SEA_TERROR_BLOOD)));
     public static final RegistryObject<Item> SEA_TERROR_CUTLET = registerWithTab("sea_terror_cutlet",
