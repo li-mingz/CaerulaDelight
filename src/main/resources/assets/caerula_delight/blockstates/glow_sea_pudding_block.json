@@ -1,21 +1,19 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "caerula_delight:block/glow_sea_pudding_block"
-      },
-      {
-        "model": "caerula_delight:block/glow_sea_pudding_block",
-        "y": 90
-      },
-      {
-        "model": "caerula_delight:block/glow_sea_pudding_block",
-        "y": 180
-      },
-      {
-        "model": "caerula_delight:block/glow_sea_pudding_block",
-        "y": 270
-      }
-    ]
+    "facing=north": {
+      "model": "caerula_delight:block/glow_sea_pudding_block"
+    },
+    "facing=east": {
+      "model": "caerula_delight:block/glow_sea_pudding_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "caerula_delight:block/glow_sea_pudding_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "caerula_delight:block/glow_sea_pudding_block",
+      "y": 270
+    }
   }
 }
