@@ -18,20 +18,33 @@ public class AddItemModifier extends LootModifier {
     // 用于序列化 JSON 配置的 Codec
     public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(() ->
             RecordCodecBuilder.create(inst -> codecStart(inst).and(
-                    ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(m -> m.item)
+                    inst.group(
+                            ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(m -> m.item),
+                            Codec.INT.optionalFieldOf("minCount", 1).forGetter(m -> m.minCount),
+                            Codec.INT.optionalFieldOf("maxCount", 1).forGetter(m -> m.maxCount)
+                    )
             ).apply(inst, AddItemModifier::new)));
 
     private final Item item;
+    private final int minCount;
+    private final int maxCount;
 
-    public AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
+    public AddItemModifier(LootItemCondition[] conditionsIn, Item item, int minCount, int maxCount) {
         super(conditionsIn);
         this.item = item;
+        this.minCount = minCount;
+        this.maxCount = maxCount;
+    }
+
+    public AddItemModifier(LootItemCondition[] conditionsIn, Item item) {
+        this(conditionsIn, item, 1, 1);
     }
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         // 把物品加到掉落列表里
-        generatedLoot.add(new ItemStack(this.item));
+        int count = context.getRandom().nextInt(maxCount - minCount + 1) + minCount;
+        generatedLoot.add(new ItemStack(this.item, count));
         return generatedLoot;
     }
 

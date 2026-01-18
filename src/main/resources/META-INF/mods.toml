@@ -86,3 +86,10 @@ mandatory=true
 versionRange="[0.9.10.3,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "jei"
+mandatory = false
+versionRange = "[15.2.0,)"
+ordering = "AFTER"
+side = "BOTH"

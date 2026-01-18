@@ -3,8 +3,12 @@ package com.limingz.caerula_delight.data;
 import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.loot.AddItemModifier;
 import com.limingz.caerula_delight.registry.RegisterItems;
+import net.minecraft.advancements.critereon.EntityEquipmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -48,5 +52,35 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                     seaTerrorCutletItem
             ));
         }
+
+        RegistryObject<EntityType<?>>[] prokaryotes = new RegistryObject[]{
+                CaerulaArborModEntities.FLOATER_PROKARYOTE,
+                CaerulaArborModEntities.ACCUMULATOR_PROKARYOTE,
+                CaerulaArborModEntities.FEEDER_PROKARYOTE,
+                CaerulaArborModEntities.DEPOSITER_PROKARYOTE
+        };
+
+        for (RegistryObject<EntityType<?>> entity : prokaryotes) {
+            add("sea_terror_jelly_from_" + entity.getId().getPath(), new AddItemModifier(
+                    new LootItemCondition[]{
+                            LootItemEntityPropertyCondition.hasProperties(
+                                    LootContext.EntityTarget.KILLER,
+                                    EntityPredicate.Builder.entity().equipment(
+                                            EntityEquipmentPredicate.Builder.equipment().mainhand(
+                                                    ItemPredicate.Builder.item().of(ItemTags.create(new ResourceLocation("forge", "tools/knives"))).build()
+                                            ).build()
+                                    )
+                            ).build(),
+                            LootItemEntityPropertyCondition.hasProperties(
+                                    LootContext.EntityTarget.THIS,
+                                    EntityPredicate.Builder.entity().of(entity.get())
+                            ).build()
+                    },
+                    RegisterItems.SEA_TERROR_JELLY.get(),
+                    1,
+                    2
+            ));
+        }
+
     }
 }

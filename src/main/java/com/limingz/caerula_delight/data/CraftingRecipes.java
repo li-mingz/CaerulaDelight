@@ -1,9 +1,11 @@
 package com.limingz.caerula_delight.data;
 
 import com.limingz.caerula_delight.registry.RegisterItems;
+import net.mcreator.caerulaarbor.init.CaerulaArborModItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.function.Consumer;
 
@@ -86,6 +88,17 @@ public class CraftingRecipes
                 .requires(RegisterItems.SEA_TERROR_CUTLET.get())
                 .requires(Items.GLASS_BOTTLE)
                 .unlockedBy("has_sea_terror_cutlet", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_CUTLET.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, RegisterItems.GLOW_SEA_PUDDING.get(), 1)
+                .pattern(" a ")
+                .pattern("bcb")
+                .pattern("ddd")
+                .define('a', Items.GLOW_BERRIES)
+                .define('b', RegisterItems.SEA_TERROR_JELLY.get())
+                .define('c', ForgeTags.MILK)
+                .define('d', CaerulaArborModItems.FAKE_EGG.get())
+                .unlockedBy("has_sea_terror_jelly", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_JELLY.get()))
                 .save(consumer);
     }
 }

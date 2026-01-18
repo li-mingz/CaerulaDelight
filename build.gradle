@@ -189,8 +189,12 @@ dependencies {
     compileOnly fg.deobf("local:FarmersDelight-1.20.1:${farmers_delight_version}")
     runtimeOnly fg.deobf("local:FarmersDelight-1.20.1:${farmers_delight_version}")
 
-    // 测试环境用来测试的mod
+    // 软依赖
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-common-api:15.20.0.129")
+    compileOnly fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.20.0.129")
     runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.129")
+
+    // 测试环境用来测试的mod
     runtimeOnly fg.deobf("local:appleskin-forge-mc1.20.1:2.5.1")
 }
 
