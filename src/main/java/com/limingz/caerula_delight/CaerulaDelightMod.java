@@ -1,5 +1,7 @@
 package com.limingz.caerula_delight;
 
+import com.limingz.caerula_delight.registry.ModBlock;
+import com.limingz.caerula_delight.registry.ModBlockEntities;
 import com.limingz.caerula_delight.registry.ModCreativeTabs;
 import com.limingz.caerula_delight.registry.ModLootModifiers;
 import com.limingz.caerula_delight.registry.RegisterItems;
@@ -26,6 +28,8 @@ public class CaerulaDelightMod
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
         RegisterItems.ITEMS.register(modEventBus);
+        ModBlock.BLOCKS.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
         ModLootModifiers.register(modEventBus);
     }

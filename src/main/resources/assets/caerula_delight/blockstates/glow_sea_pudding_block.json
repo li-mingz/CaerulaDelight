@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "caerula_delight:block/glow_sea_pudding_block"
+      },
+      {
+        "model": "caerula_delight:block/glow_sea_pudding_block",
+        "y": 90
+      },
+      {
+        "model": "caerula_delight:block/glow_sea_pudding_block",
+        "y": 180
+      },
+      {
+        "model": "caerula_delight:block/glow_sea_pudding_block",
+        "y": 270
+      }
+    ]
+  }
+}
