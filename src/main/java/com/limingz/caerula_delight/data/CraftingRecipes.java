@@ -1,10 +1,13 @@
 package com.limingz.caerula_delight.data;
 
+import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import net.mcreator.caerulaarbor.init.CaerulaArborModItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.function.Consumer;
@@ -32,26 +35,32 @@ public class CraftingRecipes
     }
 
     private static void recipesTools(Consumer<FinishedRecipe> consumer) {
-//        // 燧石刀
-//        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.FLINT_KNIFE.get())
-//                .pattern("m")
-//                .pattern("s")
-//                .define('m', Items.FLINT)
-//                .define('s', Items.STICK)
-//                .unlockedBy("has_stick", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
-//                .save(consumer);
-        // 铁刀、钻石刀、金刀 ... (代码略)
-
-        // 下界合金刀：这是锻造台配方，不是工作台配方
-        // 使用 SmithingTransformRecipeBuilder (模版 + 升级材料 + 基础物品)
-//        SmithingTransformRecipeBuilder.smithing(
-//                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), // 1.20+ 新增的升级模版
-//                        Ingredient.of(ModItems.DIAMOND_KNIFE.get()), // 基础：钻石刀
-//                        Ingredient.of(Items.NETHERITE_INGOT),        // 材料：下界合金锭
-//                        RecipeCategory.COMBAT
-//                )
-//                .unlocks("has_netherite_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHERITE_INGOT))
-//                .save(consumer, FarmersDelight.MODID + ":netherite_knife_smithing");
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, RegisterItems.OCEAN_CHITIN_KNIFE.get())
+                .pattern("m")
+                .pattern("s")
+                .define('m', CaerulaArborModItems.CHITIN_INGOT.get())
+                .define('s', CaerulaArborModItems.CUTIN_STICK.get())
+                .unlockedBy("has_cutin_stick", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.CUTIN_STICK.get()))
+                .save(consumer);
+        // 锻造台配方
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(CaerulaArborModItems.OCEAN_TRIM_TEMPLATE.get()),
+                        Ingredient.of(RegisterItems.OCEAN_CHITIN_KNIFE.get()),
+                        Ingredient.of(CaerulaArborModItems.COMPLEX_CHITIN.get()),
+                        RecipeCategory.COMBAT,
+                        RegisterItems.COMPLEX_CHITIN_KNIFE.get()
+                )
+                .unlocks("has_complex_chitin", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.COMPLEX_CHITIN.get()))
+                .save(consumer, CaerulaDelightMod.MODID + ":complex_chitin_knife_smithing");
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(CaerulaArborModItems.FLAMARINE_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(ModItems.NETHERITE_KNIFE.get()),
+                        Ingredient.of(CaerulaArborModItems.TRAILRITE.get()),
+                        RecipeCategory.COMBAT,
+                        RegisterItems.TRAILRITE_KNIFE.get()
+                )
+                .unlocks("has_trailrite", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.TRAILRITE.get()))
+                .save(consumer, CaerulaDelightMod.MODID + ":trailrite_knife_smithing");
     }
 
 

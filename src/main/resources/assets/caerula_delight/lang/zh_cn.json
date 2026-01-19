@@ -8,5 +8,11 @@
   "item.caerula_delight.cooked_sea_terror_cutlet_strips": "熟恐鱼排切片",
   "item.caerula_delight.glow_sea_pudding": "萤海布丁",
   "item.caerula_delight.sea_terror_jelly": "海嗣胶冻",
-  "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……"
+  "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……",
+  "item.caerula_delight.ocean_chitin_knife": "几丁质杀鱼刀",
+  "item.caerula_delight.complex_chitin_knife": "复合几丁质杀鱼刀",
+  "item.caerula_delight.trailrite_knife": "§b庖海合金刀",
+
+  "item.caerula_delight.aquatic_knife.tooltip": "对水生生物和海嗣造成的伤害提高30%。",
+  "item.caerula_delight.trailrite_knife.tooltip": "造成额外神经损伤。"
 }

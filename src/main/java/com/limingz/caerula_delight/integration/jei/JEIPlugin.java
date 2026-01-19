@@ -9,6 +9,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import vectorwing.farmersdelight.common.utility.TextUtils;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
@@ -27,5 +28,9 @@ public class JEIPlugin implements IModPlugin {
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei.info.sea_terror_jelly") // 对应语言文件中的 key
         );
+        registration.addIngredientInfo(new ItemStack(RegisterItems.OCEAN_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
+        registration.addIngredientInfo(new ItemStack(RegisterItems.COMPLEX_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
+        registration.addIngredientInfo(new ItemStack(RegisterItems.TRAILRITE_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
+
     }
 }

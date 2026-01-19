@@ -25,5 +25,8 @@ public class DataGenerators
         generator.addProvider(event.includeServer(), new Recipes(output));
         generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(output));
 
+        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(output, lookupProvider, helper);
+        generator.addProvider(event.includeServer(), blockTags);
+        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, blockTags.contentsGetter(), helper));
     }
 }

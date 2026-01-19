@@ -2,8 +2,7 @@ package com.limingz.caerula_delight.registry;
 
 import com.google.common.collect.Sets;
 import com.limingz.caerula_delight.CaerulaDelightMod;
-import com.limingz.caerula_delight.item.GlowSeaPuddingItem;
-import com.limingz.caerula_delight.item.SeaTerrorBloodItem;
+import com.limingz.caerula_delight.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,8 +12,7 @@ import vectorwing.farmersdelight.common.item.DrinkableItem;
 import java.util.LinkedHashSet;
 import java.util.function.Supplier;
 
-import static vectorwing.farmersdelight.common.registry.ModItems.drinkItem;
-import static vectorwing.farmersdelight.common.registry.ModItems.foodItem;
+import static vectorwing.farmersdelight.common.registry.ModItems.*;
 
 public class RegisterItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CaerulaDelightMod.MODID);
@@ -46,4 +44,13 @@ public class RegisterItems {
             () -> new Item(foodItem(FoodValues.SEA_TERROR_CUTLET_STRIPS)));
     public static final RegistryObject<Item> COOKED_SEA_TERROR_CUTLET_STRIPS = registerWithTab("cooked_sea_terror_cutlet_strips",
             () -> new Item(foodItem(FoodValues.COOKED_SEA_TERROR_CUTLET_STRIPS)));
+
+
+    // 刀
+    public static final RegistryObject<Item> OCEAN_CHITIN_KNIFE = registerWithTab("ocean_chitin_knife",
+            () -> new AquaticKnifeItem(CaerulaMaterials.OCEAN_CHITIN, 0.5F, -2.0F, basicItem()));
+    public static final RegistryObject<Item> COMPLEX_CHITIN_KNIFE = registerWithTab("complex_chitin_knife",
+            () -> new AquaticKnifeItem(CaerulaMaterials.COMPLEX_CHITIN, 0.5F, -2.0F, basicItem()));
+    public static final RegistryObject<Item> TRAILRITE_KNIFE = registerWithTab("trailrite_knife",
+            () -> new TrailriteKnifeItem(CaerulaMaterials.TRAILRITE, 0.5F, -2.0F, basicItem()));
 }
