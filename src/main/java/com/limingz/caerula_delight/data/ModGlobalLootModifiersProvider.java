@@ -25,6 +25,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
 
     @Override
     protected void start() {
+        // 恐鱼排
         var seaTerrorCutletItem = RegisterItems.SEA_TERROR_CUTLET.get();
 
         RegistryObject<EntityType<?>>[] entities = new RegistryObject[]{
@@ -52,7 +53,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                     seaTerrorCutletItem
             ));
         }
-
+        // 海嗣胶冻
         RegistryObject<EntityType<?>>[] prokaryotes = new RegistryObject[]{
                 CaerulaArborModEntities.FLOATER_PROKARYOTE,
                 CaerulaArborModEntities.ACCUMULATOR_PROKARYOTE,
@@ -81,6 +82,17 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                     2
             ));
         }
+
+        // 寂海凋零残骨
+        add("oceanized_wither_bone_from_oceanized_wither", new AddItemModifier(
+                new LootItemCondition[]{
+                        LootItemEntityPropertyCondition.hasProperties(
+                                LootContext.EntityTarget.THIS,
+                                EntityPredicate.Builder.entity().of(CaerulaArborModEntities.OCEANIZED_WITHERIA.get())
+                        ).build()
+                },
+                RegisterItems.OCEANIZED_WITHER_BONE.get()
+        ));
 
     }
 }

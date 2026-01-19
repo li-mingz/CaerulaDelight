@@ -3,13 +3,20 @@ package com.limingz.caerula_delight.registry;
 import com.google.common.collect.Sets;
 import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.item.*;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static vectorwing.farmersdelight.common.registry.ModItems.*;
@@ -45,6 +52,8 @@ public class RegisterItems {
     public static final RegistryObject<Item> COOKED_SEA_TERROR_CUTLET_STRIPS = registerWithTab("cooked_sea_terror_cutlet_strips",
             () -> new Item(foodItem(FoodValues.COOKED_SEA_TERROR_CUTLET_STRIPS)));
 
+    public static final RegistryObject<Item> OCEANIZED_WITHER_BONE_BROTH = registerWithTab("oceanized_wither_bone_broth",
+            () -> new OceanizedWitherBoneBrothItem(bowlFoodItem(FoodValues.OCEANIZED_WITHER_BONE_BROTH)));
 
     // 刀
     public static final RegistryObject<Item> OCEAN_CHITIN_KNIFE = registerWithTab("ocean_chitin_knife",
@@ -53,4 +62,14 @@ public class RegisterItems {
             () -> new AquaticKnifeItem(CaerulaMaterials.COMPLEX_CHITIN, 0.5F, -2.0F, basicItem()));
     public static final RegistryObject<Item> TRAILRITE_KNIFE = registerWithTab("trailrite_knife",
             () -> new TrailriteKnifeItem(CaerulaMaterials.TRAILRITE, 0.5F, -2.0F, basicItem()));
+
+    // 特殊掉落物
+    public static final RegistryObject<Item> OCEANIZED_WITHER_BONE = registerWithTab("oceanized_wither_bone",
+            () -> new Item(basicItem()) {
+                @Override
+                public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+                    tooltip.add(Component.translatable("item.caerula_delight.oceanized_wither_bone.tooltip").withStyle(ChatFormatting.GRAY));
+                }
+            });
+
 }

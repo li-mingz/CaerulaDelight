@@ -2,17 +2,17 @@ package com.limingz.caerula_delight.item;
 
 import net.mcreator.caerulaarbor.procedures.DeductPlayerSanityProcedure;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-
-import vectorwing.farmersdelight.common.item.DrinkableItem;
-
+import vectorwing.farmersdelight.common.item.ConsumableItem;
 
 
-public class SeaTerrorBloodItem extends DrinkableItem
-{
-    public SeaTerrorBloodItem(Properties properties) {
-        super(properties, false, false);
+
+
+public class OceanizedWitherBoneBrothItem  extends ConsumableItem {
+    public OceanizedWitherBoneBrothItem(Item.Properties properties) {
+        super(properties, true, false);
     }
 
     @Override

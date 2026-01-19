@@ -65,17 +65,18 @@ public class CookingRecipes
 
     /**
      * 注册模组主食
-     * 这些是 Farmer's Delight 的核心内容，各种炖菜和主食。
      */
     private static void cookMeals(Consumer<FinishedRecipe> consumer) {
-//        // 烤鳕鱼炖菜
-//        CookingPotRecipeBuilder.cookingPotRecipe(ModItems.BAKED_COD_STEW.get(), 1, NORMAL_COOKING, MEDIUM_EXP)
-//                .addIngredient(ForgeTags.RAW_FISHES_COD)
-//                .addIngredient(Items.POTATO)
-//                .addIngredient(ForgeTags.EGGS)
-//                .addIngredient(ForgeTags.CROPS_TOMATO)
-//                .unlockedByAnyIngredient(Items.COD, Items.POTATO, ModItems.TOMATO.get(), Items.EGG)
-//                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-//                .build(consumer);
+        // 寂海返魂汤
+        CookingPotRecipeBuilder.cookingPotRecipe(RegisterItems.OCEANIZED_WITHER_BONE_BROTH.get(), 1, NORMAL_COOKING, LARGE_EXP, Items.BOWL)
+                .addIngredient(RegisterItems.OCEANIZED_WITHER_BONE.get())
+                .addIngredient(CaerulaArborModBlocks.NETHERSEA_SOUL_SAND.get())
+                .addIngredient(CaerulaArborModBlocks.NETHERSEA_SOUL_SAND.get())
+                .addIngredient(CaerulaArborModBlocks.NETHERSEA_SOUL_SAND.get())
+                .addIngredient(CaerulaArborModBlocks.TRAIL_MUSHROOM.get())
+                .addIngredient(Items.WITHER_SKELETON_SKULL)
+                .unlockedByAnyIngredient(RegisterItems.OCEANIZED_WITHER_BONE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
     }
 }

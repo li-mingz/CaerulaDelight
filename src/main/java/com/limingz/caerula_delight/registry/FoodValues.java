@@ -37,4 +37,14 @@ public class FoodValues {
             .nutrition(1).saturationMod(0.3f).meat().fast().build();
     public static final FoodProperties COOKED_SEA_TERROR_CUTLET_STRIPS = (new FoodProperties.Builder())
 			.nutrition(3).saturationMod(0.8f).meat().fast().build();
+
+    public static final FoodProperties OCEANIZED_WITHER_BONE_BROTH = (new FoodProperties.Builder())
+            .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 3600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.ADD_ATTACK_PERCLY.get(), 3600, 3), 1.0F)
+            .nutrition(10)
+            .saturationMod(1.2f)
+            .build();
 }
