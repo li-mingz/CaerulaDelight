@@ -58,6 +58,8 @@ public class RegisterItems {
             () -> new Item(foodItem(FoodValues.COLLECTOR_SUSHI)));
     public static final RegistryObject<Item> SEA_TERROR_SUSHI = registerWithTab("sea_terror_sushi",
             () -> new Item(foodItem(FoodValues.SEA_TERROR_SUSHI)));
+    public static final RegistryObject<Item> JELLYFISH_SKIN = registerWithTab("jellyfish_skin",
+            () -> new ConsumableItem(foodItem(FoodValues.JELLYFISH_SKIN), true, false));
 
 
     public static final RegistryObject<Item> OCEANIZED_WITHER_BONE_BROTH = registerWithTab("oceanized_wither_bone_broth",

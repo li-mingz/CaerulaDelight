@@ -16,11 +16,14 @@
   "item.caerula_delight.sea_terror_sashimi": "恐鱼刺身拼盘",
   "item.caerula_delight.collector_sushi": "掠食者手握",
   "item.caerula_delight.sea_terror_sushi": "恐鱼手握",
+  "item.caerula_delight.jellyfish_skin": "水母伞部",
 
   "item.caerula_delight.aquatic_knife.tooltip": "对水生生物和海嗣造成的伤害提高30%。",
   "item.caerula_delight.trailrite_knife.tooltip": "造成额外神经损伤。",
   "item.caerula_delight.oceanized_wither_bone.tooltip": "寂海枯灵肋骨中的一支，溺亡灵魂的哭号于骨髓中回响。",
 
+
   "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……",
-  "jei.info.collector_meat": "使用剑、斧、刀击败单核掠食者有概率获得。\n当然，你也可以选择把它装进桶里带回去，在砧板上进行更精细的处理。"
+  "jei.info.collector_meat": "使用剑、斧、刀击败单核掠食者有概率获得。\n当然，你也可以选择把它装进桶里带回去，在砧板上进行更精细的处理。",
+  "jei.info.jellyfish_skin": "稀有的水母伞盖，当伊祖米克的子代以原初之姿被击败时低概率掉落。\n使用刀击败伊祖米克必定掉落。"
 }

@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.mcreator.caerulaarbor.init.CaerulaArborModEntities;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifiersProvider(PackOutput output) {
@@ -38,7 +39,17 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 CaerulaArborModEntities.FLOATER_PROKARYOTE,
                 CaerulaArborModEntities.ACCUMULATOR_PROKARYOTE,
                 CaerulaArborModEntities.FEEDER_PROKARYOTE,
-                CaerulaArborModEntities.DEPOSITER_PROKARYOTE
+                CaerulaArborModEntities.DEPOSITER_PROKARYOTE,
+                CaerulaArborModEntities.BASELAYER_ABYSSAL,
+                CaerulaArborModEntities.GUIDE_ABYSSAL,
+                CaerulaArborModEntities.UMBRELLA_ABYSSAL,
+                CaerulaArborModEntities.CRACKER_ABYSSAL,
+                CaerulaArborModEntities.REAPER_FISH,
+                CaerulaArborModEntities.PUNCTURE_FISH,
+                CaerulaArborModEntities.PREGNANT_FISH,
+                CaerulaArborModEntities.FLEE_FISH,
+                CaerulaArborModEntities.APOSTLE_PROKARYOTE,
+                CaerulaArborModEntities.NUCLEIC_MALEFICENT
         };
 
         for (RegistryObject<EntityType<?>> entity : entities) {
@@ -58,7 +69,9 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                 CaerulaArborModEntities.FLOATER_PROKARYOTE,
                 CaerulaArborModEntities.ACCUMULATOR_PROKARYOTE,
                 CaerulaArborModEntities.FEEDER_PROKARYOTE,
-                CaerulaArborModEntities.DEPOSITER_PROKARYOTE
+                CaerulaArborModEntities.DEPOSITER_PROKARYOTE,
+                CaerulaArborModEntities.APOSTLE_PROKARYOTE,
+                CaerulaArborModEntities.NUCLEIC_MALEFICENT
         };
 
         for (RegistryObject<EntityType<?>> entity : prokaryotes) {
@@ -68,7 +81,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                                     LootContext.EntityTarget.KILLER,
                                     EntityPredicate.Builder.entity().equipment(
                                             EntityEquipmentPredicate.Builder.equipment().mainhand(
-                                                    ItemPredicate.Builder.item().of(ItemTags.create(new ResourceLocation("forge", "tools/knives"))).build()
+                                                    ItemPredicate.Builder.item().of(ForgeTags.TOOLS_KNIVES).build()
                                             ).build()
                                     )
                             ).build(),
@@ -92,6 +105,35 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                         ).build()
                 },
                 RegisterItems.OCEANIZED_WITHER_BONE.get()
+        ));
+
+        // 水母伞部
+        add("jellyfish_skin_from_izumik_offspring", new AddItemModifier(
+                new LootItemCondition[]{
+                        LootItemEntityPropertyCondition.hasProperties(
+                                LootContext.EntityTarget.THIS,
+                                EntityPredicate.Builder.entity().of(CaerulaArborModEntities.IZUMIK_OFFSPRING.get())
+                        ).build(),
+                        LootItemRandomChanceCondition.randomChance(0.2f).build()
+                },
+                RegisterItems.JELLYFISH_SKIN.get()
+        ));
+        add("jellyfish_skin_from_izumik", new AddItemModifier(
+                new LootItemCondition[]{
+                        LootItemEntityPropertyCondition.hasProperties(
+                                LootContext.EntityTarget.KILLER,
+                                EntityPredicate.Builder.entity().equipment(
+                                        EntityEquipmentPredicate.Builder.equipment().mainhand(
+                                                ItemPredicate.Builder.item().of(ForgeTags.TOOLS_KNIVES).build()
+                                        ).build()
+                                )
+                        ).build(),
+                        LootItemEntityPropertyCondition.hasProperties(
+                                LootContext.EntityTarget.THIS,
+                                EntityPredicate.Builder.entity().of(CaerulaArborModEntities.IZUMIK.get())
+                        ).build()
+                },
+                RegisterItems.JELLYFISH_SKIN.get()
         ));
 
     }

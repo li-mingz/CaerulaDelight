@@ -43,6 +43,12 @@ public class FoodValues {
             .nutrition(7).saturationMod(0.6f).build();
     public static final FoodProperties SEA_TERROR_SUSHI = (new FoodProperties.Builder())
             .nutrition(7).saturationMod(0.6f).build();
+    public static final FoodProperties JELLYFISH_SKIN = (new FoodProperties.Builder())
+            .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.INVULNERABLE.get(), 100, 0), 1.0F)
+            .nutrition(2)
+            .saturationMod(1f)
+            .fast()
+            .build();
 
     public static final FoodProperties OCEANIZED_WITHER_BONE_BROTH = (new FoodProperties.Builder())
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)

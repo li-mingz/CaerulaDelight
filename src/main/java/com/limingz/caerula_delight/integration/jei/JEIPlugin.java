@@ -34,6 +34,11 @@ public class JEIPlugin implements IModPlugin {
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei.info.collector_meat")
         );
+        registration.addIngredientInfo(
+                new ItemStack(RegisterItems.JELLYFISH_SKIN.get()),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei.info.jellyfish_skin")
+        );
 
         registration.addIngredientInfo(new ItemStack(RegisterItems.OCEAN_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
         registration.addIngredientInfo(new ItemStack(RegisterItems.COMPLEX_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
