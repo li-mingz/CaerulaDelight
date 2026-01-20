@@ -120,5 +120,20 @@ public class CraftingRecipes
                 .requires(CaerulaArborModItems.COLLECTOR_MEAT.get())
                 .unlockedBy("has_collector_meat", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.COLLECTOR_MEAT.get()))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, RegisterItems.COLLECTOR_SUSHI.get())
+                .requires(Items.DRIED_KELP)
+                .requires(CaerulaArborModItems.COLLECTOR_MEAT.get())
+                .requires(CaerulaArborModItems.COLLECTOR_MEAT.get())
+                .requires(ModItems.COOKED_RICE.get())
+                .unlockedBy("has_collector_meat", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.COLLECTOR_MEAT.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, RegisterItems.SEA_TERROR_SUSHI.get())
+                .requires(Items.DRIED_KELP)
+                .requires(RegisterItems.SEA_TERROR_CUTLET_STRIPS.get())
+                .requires(RegisterItems.SEA_TERROR_CUTLET_STRIPS.get())
+                .requires(ModItems.COOKED_RICE.get())
+                .unlockedBy("has_sea_terror_cutlet_strips", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_CUTLET_STRIPS.get()))
+                .save(consumer);
     }
 }

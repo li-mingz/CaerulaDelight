@@ -54,6 +54,11 @@ public class RegisterItems {
             () -> new Item(foodItem(FoodValues.COOKED_SEA_TERROR_CUTLET_STRIPS)));
     public static final RegistryObject<Item> SEA_TERROR_SASHIMI = registerWithTab("sea_terror_sashimi",
             () -> new ConsumableItem(bowlFoodItem(FoodValues.SEA_TERROR_SASHIMI), false, false));
+    public static final RegistryObject<Item> COLLECTOR_SUSHI = registerWithTab("collector_sushi",
+            () -> new Item(foodItem(FoodValues.COLLECTOR_SUSHI)));
+    public static final RegistryObject<Item> SEA_TERROR_SUSHI = registerWithTab("sea_terror_sushi",
+            () -> new Item(foodItem(FoodValues.SEA_TERROR_SUSHI)));
+
 
     public static final RegistryObject<Item> OCEANIZED_WITHER_BONE_BROTH = registerWithTab("oceanized_wither_bone_broth",
             () -> new OceanizedWitherBoneBrothItem(bowlFoodItem(FoodValues.OCEANIZED_WITHER_BONE_BROTH)));
