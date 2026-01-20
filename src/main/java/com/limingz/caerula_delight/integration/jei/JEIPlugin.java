@@ -6,6 +6,7 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
+import net.mcreator.caerulaarbor.init.CaerulaArborModItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -28,6 +29,12 @@ public class JEIPlugin implements IModPlugin {
                 VanillaTypes.ITEM_STACK,
                 Component.translatable("jei.info.sea_terror_jelly") // 对应语言文件中的 key
         );
+        registration.addIngredientInfo(
+                new ItemStack(CaerulaArborModItems.COLLECTOR_MEAT.get()),
+                VanillaTypes.ITEM_STACK,
+                Component.translatable("jei.info.collector_meat")
+        );
+
         registration.addIngredientInfo(new ItemStack(RegisterItems.OCEAN_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
         registration.addIngredientInfo(new ItemStack(RegisterItems.COMPLEX_CHITIN_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));
         registration.addIngredientInfo(new ItemStack(RegisterItems.TRAILRITE_KNIFE.get()), VanillaTypes.ITEM_STACK, TextUtils.getTranslation("jei.info.knife"));

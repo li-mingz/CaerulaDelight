@@ -2,7 +2,7 @@
   "itemGroup.caerula_delight": "海嗣乐事",
   "item.caerula_delight.rotten_foam": "“腐朽泡沫”",
   "item.caerula_delight.sea_terror_blood": "恐鱼血",
-  "item.caerula_delight.sea_terror_cutlet": "恐鱼排",
+  "it.sea_terror_cutlet": "恐鱼排",
   "item.caerula_delight.cooked_sea_terror_cutlet": "熟恐鱼排",
   "item.caerula_delight.sea_terror_cutlet_strips": "恐鱼排切片",
   "item.caerula_delight.cooked_sea_terror_cutlet_strips": "熟恐鱼排切片",
@@ -13,10 +13,12 @@
   "item.caerula_delight.trailrite_knife": "§b庖海合金刀",
   "item.caerula_delight.oceanized_wither_bone": "寂海凋零残骨",
   "item.caerula_delight.oceanized_wither_bone_broth": "寂海返魂汤",
+  "item.caerula_delight.sea_terror_sashimi": "恐鱼刺身拼盘",
 
   "item.caerula_delight.aquatic_knife.tooltip": "对水生生物和海嗣造成的伤害提高30%。",
   "item.caerula_delight.trailrite_knife.tooltip": "造成额外神经损伤。",
   "item.caerula_delight.oceanized_wither_bone.tooltip": "寂海枯灵肋骨中的一支，溺亡灵魂的哭号于骨髓中回响。",
 
-  "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……"
+  "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……",
+  "jei.info.collector_meat": "使用剑、斧、刀击败单核掠食者有概率获得。\n当然，你也可以选择把它装进桶里带回去，在砧板上进行更精细的处理。"
 }

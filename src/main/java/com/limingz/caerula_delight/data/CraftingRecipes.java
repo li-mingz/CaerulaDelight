@@ -109,5 +109,16 @@ public class CraftingRecipes
                 .define('d', CaerulaArborModItems.FAKE_EGG.get())
                 .unlockedBy("has_sea_terror_jelly", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_JELLY.get()))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, RegisterItems.SEA_TERROR_SASHIMI.get())
+                .requires(Items.BOWL)
+                .requires(Ingredient.of(RegisterItems.SEA_TERROR_CUTLET.get(), RegisterItems.SEA_TERROR_CUTLET_STRIPS.get()))
+                .requires(Ingredient.of(RegisterItems.SEA_TERROR_CUTLET.get(), RegisterItems.SEA_TERROR_CUTLET_STRIPS.get()))
+                .requires(Ingredient.of(RegisterItems.SEA_TERROR_CUTLET.get(), RegisterItems.SEA_TERROR_CUTLET_STRIPS.get()))
+                .requires(CaerulaArborModItems.FAKE_EGG.get())
+                .requires(CaerulaArborModItems.COLLECTOR_MEAT.get())
+                .requires(CaerulaArborModItems.COLLECTOR_MEAT.get())
+                .unlockedBy("has_collector_meat", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.COLLECTOR_MEAT.get()))
+                .save(consumer);
     }
 }

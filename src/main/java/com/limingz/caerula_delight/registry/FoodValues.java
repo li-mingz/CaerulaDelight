@@ -37,6 +37,8 @@ public class FoodValues {
             .nutrition(1).saturationMod(0.3f).meat().fast().build();
     public static final FoodProperties COOKED_SEA_TERROR_CUTLET_STRIPS = (new FoodProperties.Builder())
 			.nutrition(3).saturationMod(0.8f).meat().fast().build();
+    public static final FoodProperties SEA_TERROR_SASHIMI = (new FoodProperties.Builder())
+            .nutrition(12).saturationMod(0.6f).meat().build();
 
     public static final FoodProperties OCEANIZED_WITHER_BONE_BROTH = (new FoodProperties.Builder())
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)

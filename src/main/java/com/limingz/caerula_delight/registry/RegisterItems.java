@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
 import java.util.LinkedHashSet;
@@ -51,6 +52,8 @@ public class RegisterItems {
             () -> new Item(foodItem(FoodValues.SEA_TERROR_CUTLET_STRIPS)));
     public static final RegistryObject<Item> COOKED_SEA_TERROR_CUTLET_STRIPS = registerWithTab("cooked_sea_terror_cutlet_strips",
             () -> new Item(foodItem(FoodValues.COOKED_SEA_TERROR_CUTLET_STRIPS)));
+    public static final RegistryObject<Item> SEA_TERROR_SASHIMI = registerWithTab("sea_terror_sashimi",
+            () -> new ConsumableItem(bowlFoodItem(FoodValues.SEA_TERROR_SASHIMI), false, false));
 
     public static final RegistryObject<Item> OCEANIZED_WITHER_BONE_BROTH = registerWithTab("oceanized_wither_bone_broth",
             () -> new OceanizedWitherBoneBrothItem(bowlFoodItem(FoodValues.OCEANIZED_WITHER_BONE_BROTH)));
