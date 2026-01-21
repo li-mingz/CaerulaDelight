@@ -1,10 +1,14 @@
 package com.limingz.caerula_delight.data;
 
+import com.limingz.caerula_delight.registry.ModTags;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import net.mcreator.caerulaarbor.init.CaerulaArborModBlocks;
+import net.mcreator.caerulaarbor.init.CaerulaArborModItems;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
+import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 
 import java.util.function.Consumer;
@@ -76,6 +80,17 @@ public class CookingRecipes
                 .addIngredient(CaerulaArborModBlocks.TRAIL_MUSHROOM.get())
                 .addIngredient(Items.WITHER_SKELETON_SKULL)
                 .unlockedByAnyIngredient(RegisterItems.OCEANIZED_WITHER_BONE.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
+        // 伊比利亚触手海鲜饭
+        CookingPotRecipeBuilder.cookingPotRecipe(RegisterItems.SEAFOOD_FRIED_RICE.get(), 1, NORMAL_COOKING, MEDIUM_EXP, ModItems.COOKED_RICE.get())
+                .addIngredient(ModTags.FISH_FOOD)
+                .addIngredient(ModTags.FISH_FOOD)
+                .addIngredient(ForgeTags.RAW_FISHES)
+                .addIngredient(ModItems.ONION.get())
+                .addIngredient(ModItems.CABBAGE.get())
+                .addIngredient(CaerulaArborModItems.ELITE_PEDUNCLE.get())
+                .unlockedByAnyIngredient(CaerulaArborModItems.ELITE_PEDUNCLE.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
                 .build(consumer);
     }

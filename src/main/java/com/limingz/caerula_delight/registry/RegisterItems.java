@@ -66,6 +66,8 @@ public class RegisterItems {
 
     public static final RegistryObject<Item> OCEANIZED_WITHER_BONE_BROTH = registerWithTab("oceanized_wither_bone_broth",
             () -> new OceanizedWitherBoneBrothItem(bowlFoodItem(FoodValues.OCEANIZED_WITHER_BONE_BROTH)));
+    public static final RegistryObject<Item> SEAFOOD_FRIED_RICE = registerWithTab("seafood_fried_rice",
+            () -> new ConsumableItem(bowlFoodItem(FoodValues.SEAFOOD_FRIED_RICE), true, false));
 
     // 刀
     public static final RegistryObject<Item> OCEAN_CHITIN_KNIFE = registerWithTab("ocean_chitin_knife",
