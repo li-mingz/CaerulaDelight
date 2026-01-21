@@ -16,6 +16,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.FishingRodItem;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.limingz.caerula_delight.registry.RegisterItems;
+import com.limingz.caerula_delight.registry.ModParticles;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 
 @Mod.EventBusSubscriber(modid = CaerulaDelightMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEventSubscriber {
@@ -47,5 +49,10 @@ public class ClientModEventSubscriber {
     public static void registerTooltipFactory(RegisterClientTooltipComponentFactoriesEvent event) {
         event.register(SanityTooltip.class, ClientSanityTooltip::new);
         event.register(LightTooltip.class, ClientLightTooltip::new);
+    }
+
+    @SubscribeEvent
+    public static void registerParticleProviders(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(ModParticles.SANITY_VULNERABILITY_PARTICLE.get(), SanityVulnerabilityParticle.Provider::new);
     }
 }

@@ -1,6 +1,9 @@
 package com.limingz.caerula_delight.item;
 
+import com.limingz.caerula_delight.registry.ModMobEffects;
 import net.mcreator.caerulaarbor.procedures.DeductPlayerSanityProcedure;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -12,15 +15,15 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.item.FishingRodItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class TrailriteFishingRodItem extends FishingRodItem {
     private final Tier tier;
@@ -28,6 +31,12 @@ public class TrailriteFishingRodItem extends FishingRodItem {
     public TrailriteFishingRodItem(Item.Properties builder, Tier tier) {
         super(builder.durability(tier.getUses()));
         this.tier = tier;
+    }
+
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+        tooltip.add(Component.translatable("item.caerula_delight.trailrite_fishing_rod.tooltip").withStyle(ChatFormatting.GRAY));
     }
 
     @Override
@@ -48,8 +57,8 @@ public class TrailriteFishingRodItem extends FishingRodItem {
                 FishingHook hook = player.fishing;
                 Entity hooked = hook.getHookedIn();
                 if (hooked instanceof LivingEntity livingHooked) {
-                    // 给被钩中的生物施加缓慢效果
-                    livingHooked.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1, false, false));
+                    // 给被钩中的生物施加 5s 损伤脆弱效果
+                    livingHooked.addEffect(new MobEffectInstance(ModMobEffects.SANITY_VULNERABILITY.get(), 100, 2, false, false));
                 }
 
                 // 浮标周围2米内实体造成精神损伤

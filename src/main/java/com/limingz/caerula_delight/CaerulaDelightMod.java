@@ -4,6 +4,8 @@ import com.limingz.caerula_delight.registry.ModBlock;
 import com.limingz.caerula_delight.registry.ModBlockEntities;
 import com.limingz.caerula_delight.registry.ModCreativeTabs;
 import com.limingz.caerula_delight.registry.ModLootModifiers;
+import com.limingz.caerula_delight.registry.ModMobEffects;
+import com.limingz.caerula_delight.registry.ModParticles;
 import com.limingz.caerula_delight.registry.ModRecipeSerializers;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import com.mojang.logging.LogUtils;
@@ -33,6 +35,8 @@ public class CaerulaDelightMod
         ModBlockEntities.register(modEventBus);
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModMobEffects.register(modEventBus);
+        ModParticles.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
     }
 }

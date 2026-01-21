@@ -24,7 +24,9 @@
   "item.caerula_delight.aquatic_knife.tooltip": "对水生生物和海嗣造成的伤害提高30%。",
   "item.caerula_delight.trailrite_knife.tooltip": "造成额外神经损伤。",
   "item.caerula_delight.oceanized_wither_bone.tooltip": "寂海枯灵肋骨中的一支，溺亡灵魂的哭号于骨髓中回响。",
+  "item.caerula_delight.trailrite_fishing_rod.tooltip": "抛出的浮标对一定范围内的生物持续造成少量神经损伤，对勾中的生物额外给予损伤脆弱效果。",
 
+  "effect.caerula_delight.sanity_vulnerability": "损伤脆弱",
 
   "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……",
   "jei.info.collector_meat": "使用剑、斧、刀击败单核掠食者有概率获得。\n当然，你也可以选择把它装进桶里带回去，在砧板上进行更精细的处理。",

@@ -1,7 +1,6 @@
 package com.limingz.caerula_delight.item;
 
 import net.mcreator.caerulaarbor.procedures.DeductPlayerSanityProcedure;
-import net.mcreator.caerulaarbor.procedures.TrailSwordHitProcedure;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
