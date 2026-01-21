@@ -7,6 +7,10 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.resources.ResourceLocation;
+import com.google.gson.JsonObject;
+import com.limingz.caerula_delight.registry.ModRecipeSerializers;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 
@@ -139,9 +143,40 @@ public class CraftingRecipes
                 .requires(Ingredient.of(Items.ICE, Items.PACKED_ICE, Items.BLUE_ICE))
                 .requires(Ingredient.of(Items.ICE, Items.PACKED_ICE, Items.BLUE_ICE))
                 .requires(Items.SWEET_BERRIES)
-                .requires(Items.GLOW_BERRIES)
+                .requires(Items.SWEET_BERRIES)
+                .requires(CaerulaArborModItems.FLUORE_BERRIES.get())
+                .requires(RegisterItems.SEA_TERROR_BLOOD.get())
                 .requires(RegisterItems.SEA_TERROR_BLOOD.get())
                 .unlockedBy("has_sea_terror_blood", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_BLOOD.get()))
-                .save(consumer);
+                .save(wrap(consumer, ModRecipeSerializers.CONSUMED_BOTTLE_SHAPELESS.get()));
+    }
+
+    private static Consumer<FinishedRecipe> wrap(Consumer<FinishedRecipe> consumer, RecipeSerializer<?> serializer) {
+        return recipe -> consumer.accept(new FinishedRecipe() {
+            @Override
+            public void serializeRecipeData(JsonObject pJson) {
+                recipe.serializeRecipeData(pJson);
+            }
+
+            @Override
+            public ResourceLocation getId() {
+                return recipe.getId();
+            }
+
+            @Override
+            public RecipeSerializer<?> getType() {
+                return serializer;
+            }
+
+            @Override
+            public JsonObject serializeAdvancement() {
+                return recipe.serializeAdvancement();
+            }
+
+            @Override
+            public ResourceLocation getAdvancementId() {
+                return recipe.getAdvancementId();
+            }
+        });
     }
 }
