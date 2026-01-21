@@ -85,6 +85,8 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
         }
 
         server {
@@ -126,8 +128,15 @@ allprojects {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    // 优先使用阿里云镜像
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
@@ -196,6 +205,7 @@ dependencies {
 
     // 测试环境用来测试的mod
     runtimeOnly fg.deobf("local:appleskin-forge-mc1.20.1:2.5.1")
+    runtimeOnly fg.deobf("maven.modrinth:jade:${jade_version}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -75,7 +75,11 @@ public class RegisterItems {
     public static final RegistryObject<Item> COMPLEX_CHITIN_KNIFE = registerWithTab("complex_chitin_knife",
             () -> new AquaticKnifeItem(CaerulaMaterials.COMPLEX_CHITIN, 0.5F, -2.0F, basicItem()));
     public static final RegistryObject<Item> TRAILRITE_KNIFE = registerWithTab("trailrite_knife",
-            () -> new TrailriteKnifeItem(CaerulaMaterials.TRAILRITE, 0.5F, -2.0F, basicItem()));
+            () -> new TrailriteKnifeItem(CaerulaMaterials.TRAILRITE, 0.5F, -2.0F, basicItem().fireResistant()));
+
+    // 钓鱼竿
+    public static final RegistryObject<Item> TRAILRITE_FISHING_ROD = registerWithTab("trailrite_fishing_rod",
+            () -> new TrailriteFishingRodItem(basicItem().fireResistant(), CaerulaMaterials.TRAILRITE));
 
     // 特殊掉落物
     public static final RegistryObject<Item> OCEANIZED_WITHER_BONE = registerWithTab("oceanized_wither_bone",

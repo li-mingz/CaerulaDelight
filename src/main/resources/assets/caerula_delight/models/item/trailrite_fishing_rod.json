@@ -1,0 +1,15 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": "caerula_delight:item/trailrite_fishing_rod"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "cast": 1
+      },
+      "model": "caerula_delight:item/trailrite_fishing_rod_cast"
+    }
+  ]
+}
+
