@@ -1,9 +1,7 @@
 package com.limingz.caerula_delight.item;
 
-import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.util.LightUtils;
 import com.limingz.caerula_delight.registry.ModBlock;
-import com.mojang.datafixers.util.Either;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,10 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RenderTooltipEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 
 public class GlowSeaPuddingItem extends ConsumableItem
@@ -92,16 +87,5 @@ public class GlowSeaPuddingItem extends ConsumableItem
         LightUtils.addLight(consumer, 20d);
     }
 
-    @Mod.EventBusSubscriber(modid = CaerulaDelightMod.MODID, value = Dist.CLIENT)
-    public static class ClientEvents {
-        @SubscribeEvent
-        public static void onRenderTooltip(RenderTooltipEvent.GatherComponents event) {
-            if (event.getItemStack().getItem() instanceof GlowSeaPuddingItem) {
-                if (event.getTooltipElements().stream().anyMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
-                    return;
-                }
-                event.getTooltipElements().add(Either.right(new LightTooltip("+20")));
-            }
-        }
-    }
+
 }

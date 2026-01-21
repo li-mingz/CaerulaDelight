@@ -135,5 +135,13 @@ public class CraftingRecipes
                 .requires(ModItems.COOKED_RICE.get())
                 .unlockedBy("has_sea_terror_cutlet_strips", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_CUTLET_STRIPS.get()))
                 .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, RegisterItems.STARFIELD_SHAVED_ICE.get())
+                .requires(Ingredient.of(Items.ICE, Items.PACKED_ICE, Items.BLUE_ICE))
+                .requires(Ingredient.of(Items.ICE, Items.PACKED_ICE, Items.BLUE_ICE))
+                .requires(Items.SWEET_BERRIES)
+                .requires(Items.GLOW_BERRIES)
+                .requires(RegisterItems.SEA_TERROR_BLOOD.get())
+                .unlockedBy("has_sea_terror_blood", InventoryChangeTrigger.TriggerInstance.hasItems(RegisterItems.SEA_TERROR_BLOOD.get()))
+                .save(consumer);
     }
 }

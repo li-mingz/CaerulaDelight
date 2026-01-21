@@ -39,6 +39,8 @@ public class RegisterItems {
 
     public static final RegistryObject<Item> ROTTEN_FOAM = registerWithTab("rotten_foam",
             () -> new DrinkableItem(drinkItem().food(FoodValues.ROTTEN_FOAM), true, false));
+    public static final RegistryObject<Item> STARFIELD_SHAVED_ICE = registerWithTab("starfield_shaved_ice",
+            () -> new StarfieldShavedIceItem(drinkItem().food(FoodValues.STARFIELD_SHAVED_ICE)));
 
 
 

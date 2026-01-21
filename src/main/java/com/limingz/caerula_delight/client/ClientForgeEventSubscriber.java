@@ -2,8 +2,7 @@ package com.limingz.caerula_delight.client;
 
 import com.limingz.caerula_delight.CaerulaDelightMod;
 
-import com.limingz.caerula_delight.item.SanityTooltip;
-import com.limingz.caerula_delight.item.SeaTerrorBloodItem;
+import com.limingz.caerula_delight.item.*;
 import com.limingz.caerula_delight.registry.RegisterItems;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +23,18 @@ public class ClientForgeEventSubscriber {
         if (stack.getItem() == RegisterItems.OCEANIZED_WITHER_BONE_BROTH.get()) {
             event.getTooltipElements().add(Either.right(new SanityTooltip("-1001")));
         }
+
+        if (stack.getItem() instanceof GlowSeaPuddingItem) {
+            if (event.getTooltipElements().stream().anyMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
+                return;
+            }
+            event.getTooltipElements().add(Either.right(new LightTooltip("+20")));
+        }
+        if (stack.getItem() instanceof StarfieldShavedIceItem) {
+            if (event.getTooltipElements().stream().anyMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
+                return;
+            }
+            event.getTooltipElements().add(Either.right(new LightTooltip("+15")));
+        }
     }
 }
-

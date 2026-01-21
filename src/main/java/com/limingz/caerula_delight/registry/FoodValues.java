@@ -11,6 +11,13 @@ public class FoodValues {
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.SANITY_IMMUE.get(), 6000, 0), 1.0F)
             .build();
+    public static final FoodProperties STARFIELD_SHAVED_ICE = (new FoodProperties.Builder())
+            .alwaysEat()
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 6000, 0), 1.0F)
+            .nutrition(8)
+            .saturationMod(0.5f)
+            .build();
 
     public static final FoodProperties SEA_TERROR_BLOOD = (new FoodProperties.Builder())
             .alwaysEat()
