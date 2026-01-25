@@ -10,7 +10,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -23,10 +22,20 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import java.util.UUID;
+
 import java.util.List;
 
 public class TrailriteFishingRodItem extends FishingRodItem {
     private final Tier tier;
+    private static final UUID MAINHAND_LUCK_MODIFIER_UUID = UUID.fromString("fa233e1c-4180-4865-b01b-bcce9785aca3");
+    private static final UUID OFFHAND_LUCK_MODIFIER_UUID = UUID.fromString("d6db11e0-8271-4658-b610-86337a672323");
 
     public TrailriteFishingRodItem(Item.Properties builder, Tier tier) {
         super(builder.durability(tier.getUses()));
@@ -50,6 +59,18 @@ public class TrailriteFishingRodItem extends FishingRodItem {
     }
 
     @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.putAll(super.getAttributeModifiers(slot, stack));
+        if (slot == EquipmentSlot.MAINHAND) {
+            builder.put(Attributes.LUCK, new AttributeModifier(MAINHAND_LUCK_MODIFIER_UUID, "trailrite_fishing_rod_luck_modifier", 3.25, AttributeModifier.Operation.ADDITION));
+        } else if (slot == EquipmentSlot.OFFHAND) {
+            builder.put(Attributes.LUCK, new AttributeModifier(OFFHAND_LUCK_MODIFIER_UUID, "trailrite_fishing_rod_luck_modifier", 3.25, AttributeModifier.Operation.ADDITION));
+        }
+        return builder.build();
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (!level.isClientSide && entity instanceof Player player) {
             boolean isHeld = player.getMainHandItem() == stack || player.getOffhandItem() == stack;
@@ -59,6 +80,7 @@ public class TrailriteFishingRodItem extends FishingRodItem {
                 if (hooked instanceof LivingEntity livingHooked) {
                     // 给被钩中的生物施加 5s 损伤脆弱效果
                     livingHooked.addEffect(new MobEffectInstance(ModMobEffects.SANITY_VULNERABILITY.get(), 100, 2, false, false));
+
                 }
 
                 // 浮标周围2米内实体造成精神损伤

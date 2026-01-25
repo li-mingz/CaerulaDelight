@@ -14,7 +14,7 @@ public class ModParticles {
 
     public static final RegistryObject<SimpleParticleType> SANITY_VULNERABILITY_PARTICLE =
             PARTICLE_TYPES.register("sanity_vulnerability_particle",
-                    () -> new SimpleParticleType(true));
+                    () -> new SimpleParticleType(false));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);

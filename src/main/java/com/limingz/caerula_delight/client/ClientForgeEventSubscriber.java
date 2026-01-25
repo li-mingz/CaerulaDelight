@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = CaerulaDelightMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ClientForgeEventSubscriber {
+
     @SubscribeEvent
     public static void onRenderTooltip(RenderTooltipEvent.GatherComponents event) {
         ItemStack stack = event.getItemStack();
