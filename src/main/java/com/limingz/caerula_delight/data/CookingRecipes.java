@@ -36,6 +36,7 @@ public class CookingRecipes
      */
     public static void register(Consumer<FinishedRecipe> consumer) {
         cookMiscellaneous(consumer);   // 注册杂项食谱 (饮料、酱料、狗粮等)
+        cookOtherModMeals(consumer);  //  注册其他模组的食物
         cookMeals(consumer);           // 注册模组新增的主食 (炖菜、面条、米饭等)
     }
 
@@ -65,6 +66,20 @@ public class CookingRecipes
                 .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS) // 设置在食谱书中的分类: 饮料
                 .build(consumer);
 
+    }
+    /**
+     * 注册其他模组的食物
+     */
+    private static void cookOtherModMeals(Consumer<FinishedRecipe> consumer) {
+        // 寂海返魂汤
+        CookingPotRecipeBuilder.cookingPotRecipe(CaerulaArborModItems.SEABORN_SOUP.get(), 1, NORMAL_COOKING, MEDIUM_EXP, Items.BOWL)
+                .addIngredient(ModTags.FISH_FOOD)
+                .addIngredient(ModTags.FISH_FOOD)
+                .addIngredient(CaerulaArborModItems.COOKED_FAKEEGG.get())
+                .addIngredient(Items.CARROT)
+                .addIngredient(Items.POTATO)
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer);
     }
 
     /**

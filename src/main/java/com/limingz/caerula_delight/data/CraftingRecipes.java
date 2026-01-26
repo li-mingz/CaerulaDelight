@@ -65,6 +65,15 @@ public class CraftingRecipes
                 )
                 .unlocks("has_trailrite", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.TRAILRITE.get()))
                 .save(consumer, CaerulaDelightMod.MODID + ":trailrite_knife_smithing");
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(CaerulaArborModItems.FLAMARINE_UPGRADE_TEMPLATE.get()),
+                        Ingredient.of(Items.FISHING_ROD),
+                        Ingredient.of(CaerulaArborModItems.TRAILRITE.get()),
+                        RecipeCategory.COMBAT,
+                        RegisterItems.TRAILRITE_FISHING_ROD.get()
+                )
+                .unlocks("has_trailrite", InventoryChangeTrigger.TriggerInstance.hasItems(CaerulaArborModItems.TRAILRITE.get()))
+                .save(consumer, CaerulaDelightMod.MODID + ":trailrite_fishing_rod_smithing");
     }
 
 
