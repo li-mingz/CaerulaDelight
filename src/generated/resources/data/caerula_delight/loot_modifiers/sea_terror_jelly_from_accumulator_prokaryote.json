@@ -1,0 +1,25 @@
+{
+  "type": "caerula_delight:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "killer",
+      "predicate": {
+        "equipment": {
+          "mainhand": {
+            "tag": "forge:tools/knives"
+          }
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "caerula_arbor:accumulator_prokaryote"
+      }
+    }
+  ],
+  "item": "caerula_delight:sea_terror_jelly",
+  "maxCount": 2
+}

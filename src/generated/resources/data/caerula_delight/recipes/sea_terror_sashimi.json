@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    [
+      {
+        "item": "caerula_delight:sea_terror_cutlet"
+      },
+      {
+        "item": "caerula_delight:sea_terror_cutlet_strips"
+      }
+    ],
+    [
+      {
+        "item": "caerula_delight:sea_terror_cutlet"
+      },
+      {
+        "item": "caerula_delight:sea_terror_cutlet_strips"
+      }
+    ],
+    [
+      {
+        "item": "caerula_delight:sea_terror_cutlet"
+      },
+      {
+        "item": "caerula_delight:sea_terror_cutlet_strips"
+      }
+    ],
+    {
+      "item": "caerula_arbor:fake_egg"
+    },
+    {
+      "item": "caerula_arbor:collector_meat"
+    },
+    {
+      "item": "caerula_arbor:collector_meat"
+    }
+  ],
+  "result": {
+    "item": "caerula_delight:sea_terror_sashimi"
+  }
+}

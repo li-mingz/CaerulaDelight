@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "caerula_delight:trailrite_fishing_rod_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_trailrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caerula_arbor:trailrite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_trailrite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "caerula_delight:trailrite_fishing_rod_smithing"
+    ]
+  },
+  "sends_telemetry_event": false
+}

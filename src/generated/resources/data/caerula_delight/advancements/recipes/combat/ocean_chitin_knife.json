@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cutin_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caerula_arbor:cutin_stick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "caerula_delight:ocean_chitin_knife"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cutin_stick",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "caerula_delight:ocean_chitin_knife"
+    ]
+  },
+  "sends_telemetry_event": false
+}

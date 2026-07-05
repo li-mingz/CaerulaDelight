@@ -1,0 +1,46 @@
+{
+  "type": "caerula_delight:consumed_bottle_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:ice"
+      },
+      {
+        "item": "minecraft:packed_ice"
+      },
+      {
+        "item": "minecraft:blue_ice"
+      }
+    ],
+    [
+      {
+        "item": "minecraft:ice"
+      },
+      {
+        "item": "minecraft:packed_ice"
+      },
+      {
+        "item": "minecraft:blue_ice"
+      }
+    ],
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "caerula_arbor:fluore_berries"
+    },
+    {
+      "item": "caerula_delight:sea_terror_blood"
+    },
+    {
+      "item": "caerula_delight:sea_terror_blood"
+    }
+  ],
+  "result": {
+    "item": "caerula_delight:starfield_shaved_ice"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "caerula_delight:sea_terror_cutlet_strips"
+    },
+    {
+      "item": "caerula_delight:sea_terror_cutlet_strips"
+    },
+    {
+      "item": "farmersdelight:cooked_rice"
+    }
+  ],
+  "result": {
+    "item": "caerula_delight:sea_terror_sushi"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "m": {
+      "item": "caerula_arbor:chitin_ingot"
+    },
+    "s": {
+      "item": "caerula_arbor:cutin_stick"
+    }
+  },
+  "pattern": [
+    "m",
+    "s"
+  ],
+  "result": {
+    "item": "caerula_delight:ocean_chitin_knife"
+  },
+  "show_notification": true
+}

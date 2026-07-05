@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "caerula_arbor:fish_food"
+    },
+    {
+      "tag": "caerula_arbor:fish_food"
+    },
+    {
+      "item": "caerula_arbor:cooked_fakeegg"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:potato"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "caerula_arbor:seaborn_soup"
+  }
+}

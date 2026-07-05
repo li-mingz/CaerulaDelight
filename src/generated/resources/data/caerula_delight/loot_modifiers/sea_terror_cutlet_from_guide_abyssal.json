@@ -1,0 +1,17 @@
+{
+  "type": "caerula_delight:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "caerula_arbor:guide_abyssal"
+      }
+    },
+    {
+      "chance": 0.6,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "item": "caerula_delight:sea_terror_cutlet"
+}

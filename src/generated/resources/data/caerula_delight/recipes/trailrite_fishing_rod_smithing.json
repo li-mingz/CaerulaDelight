@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "caerula_arbor:trailrite"
+  },
+  "base": {
+    "item": "minecraft:fishing_rod"
+  },
+  "result": {
+    "item": "caerula_delight:trailrite_fishing_rod"
+  },
+  "template": {
+    "item": "caerula_arbor:flamarine_upgrade_template"
+  }
+}

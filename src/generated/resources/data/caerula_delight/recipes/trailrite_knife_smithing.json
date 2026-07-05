@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "caerula_arbor:trailrite"
+  },
+  "base": {
+    "item": "farmersdelight:netherite_knife"
+  },
+  "result": {
+    "item": "caerula_delight:trailrite_knife"
+  },
+  "template": {
+    "item": "caerula_arbor:flamarine_upgrade_template"
+  }
+}

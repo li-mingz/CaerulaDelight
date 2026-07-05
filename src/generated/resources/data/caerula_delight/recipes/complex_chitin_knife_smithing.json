@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "caerula_arbor:complex_chitin"
+  },
+  "base": {
+    "item": "caerula_delight:ocean_chitin_knife"
+  },
+  "result": {
+    "item": "caerula_delight:complex_chitin_knife"
+  },
+  "template": {
+    "item": "caerula_arbor:ocean_trim_template"
+  }
+}

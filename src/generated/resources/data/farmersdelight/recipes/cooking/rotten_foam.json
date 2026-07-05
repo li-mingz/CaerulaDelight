@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "caerula_delight:sea_terror_blood"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "caerula_arbor:deep_seagrass"
+    },
+    {
+      "item": "minecraft:glow_ink_sac"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "item": "caerula_delight:rotten_foam"
+  }
+}

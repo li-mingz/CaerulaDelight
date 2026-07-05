@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "a": {
+      "item": "minecraft:glow_berries"
+    },
+    "b": {
+      "item": "caerula_delight:sea_terror_jelly"
+    },
+    "c": {
+      "tag": "forge:milk"
+    },
+    "d": {
+      "item": "caerula_arbor:fake_egg"
+    }
+  },
+  "pattern": [
+    " a ",
+    "bcb",
+    "ddd"
+  ],
+  "result": {
+    "item": "caerula_delight:glow_sea_pudding"
+  },
+  "show_notification": true
+}
