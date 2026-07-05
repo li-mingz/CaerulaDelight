@@ -2,10 +2,12 @@ package com.limingz.caerula_delight.item;
 
 import com.limingz.caerula_delight.util.LightUtils;
 import com.limingz.caerula_delight.registry.ModBlock;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -15,11 +17,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
 import vectorwing.farmersdelight.common.item.ConsumableItem;
+import vectorwing.farmersdelight.common.utility.TextUtils;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class GlowSeaPuddingItem extends ConsumableItem
 {
     public GlowSeaPuddingItem(Properties properties) {
         super(properties, true, false);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
+        super.appendHoverText(stack, level, tooltip, isAdvanced);
+        tooltip.add(TextUtils.PLACEABLE_SNEAKING);
     }
 
     @Override
