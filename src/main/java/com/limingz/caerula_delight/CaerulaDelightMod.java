@@ -1,5 +1,6 @@
 package com.limingz.caerula_delight;
 
+import com.limingz.caerula_delight.registry.ModAttributes;
 import com.limingz.caerula_delight.registry.ModBlock;
 import com.limingz.caerula_delight.registry.ModBlockEntities;
 import com.limingz.caerula_delight.registry.ModCreativeTabs;
@@ -35,6 +36,7 @@ public class CaerulaDelightMod
         ModBlockEntities.register(modEventBus);
         ModCreativeTabs.CREATIVE_TABS.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModAttributes.register(modEventBus);
         ModMobEffects.register(modEventBus);
         ModParticles.register(modEventBus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);

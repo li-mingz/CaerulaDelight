@@ -27,6 +27,7 @@
   "item.caerula_delight.trailrite_fishing_rod.tooltip": "§7抛出的浮标会对一定范围内的非玩家生物持续造成少量§f神经损伤§7，\n对勾中的生物额外给予§f损伤脆弱§7效果。",
 
   "effect.caerula_delight.sanity_vulnerability": "损伤脆弱",
+  "effect.caerula_delight.sanity_vulnerability.description": "+%s%% 受到的神经损伤",
 
   "jei.info.sea_terror_jelly": "剖开某些海嗣的肢体取出的粘稠组织液。剑太大了，想取出它你得找一把更轻的工具……",
   "jei.info.collector_meat": "使用剑、斧、刀击败单核掠食者有概率获得。\n当然，你也可以选择把它装进桶里带回去，在砧板上进行更精细的处理。",
