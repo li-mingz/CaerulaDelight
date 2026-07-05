@@ -54,7 +54,7 @@ public class CookingRecipes
 //                // 解锁条件: 拥有可可豆、奶桶或牛奶瓶时解锁
 //                .unlockedByAnyIngredient(Items.COCOA_BEANS, Items.MILK_BUCKET, ModItems.MILK_BOTTLE.get())
 //                .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS) // 设置在食谱书中的分类: 饮料
-//                .build(consumer);
+//                .save(consumer);
 
         CookingPotRecipeBuilder.cookingPotRecipe(RegisterItems.ROTTEN_FOAM.get(), 1, NORMAL_COOKING, MEDIUM_EXP, RegisterItems.SEA_TERROR_BLOOD.get())
 //                .addIngredient(RegisterItems.SEA_TERROR_BLOOD.get())
@@ -64,7 +64,7 @@ public class CookingRecipes
                 // 解锁条件
                 .unlockedByAnyIngredient(CaerulaArborModBlocks.DEEP_SEAGRASS.get(), RegisterItems.SEA_TERROR_BLOOD.get(), Items.GLOW_INK_SAC, Items.SEA_PICKLE)
                 .setRecipeBookTab(CookingPotRecipeBookTab.DRINKS) // 设置在食谱书中的分类: 饮料
-                .build(consumer);
+                .save(consumer);
 
     }
     /**
@@ -79,7 +79,7 @@ public class CookingRecipes
                 .addIngredient(Items.CARROT)
                 .addIngredient(Items.POTATO)
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .build(consumer);
+                .save(consumer);
     }
 
     /**
@@ -96,7 +96,7 @@ public class CookingRecipes
                 .addIngredient(Items.WITHER_SKELETON_SKULL)
                 .unlockedByAnyIngredient(RegisterItems.OCEANIZED_WITHER_BONE.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .build(consumer);
+                .save(consumer);
         // 伊比利亚触手海鲜饭
         CookingPotRecipeBuilder.cookingPotRecipe(RegisterItems.SEAFOOD_FRIED_RICE.get(), 1, NORMAL_COOKING, MEDIUM_EXP, ModItems.COOKED_RICE.get())
                 .addIngredient(ModTags.FISH_FOOD)
@@ -107,6 +107,6 @@ public class CookingRecipes
                 .addIngredient(CaerulaArborModItems.ELITE_PEDUNCLE.get())
                 .unlockedByAnyIngredient(CaerulaArborModItems.ELITE_PEDUNCLE.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
-                .build(consumer);
+                .save(consumer);
     }
 }

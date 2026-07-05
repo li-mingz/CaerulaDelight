@@ -75,21 +75,28 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
 modId="farmersdelight"
 mandatory=true
-versionRange="[1.2.9,)"
+versionRange="${farmers_delight_version_range}"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId="caerula_arbor"
 mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[0.9.10.3,)"
+# This version range declares a minimum of the current version and any later version
+versionRange="${caerula_arbor_version_range}"
 ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
 modId = "jei"
 mandatory = false
-versionRange = "[15.2.0,)"
+versionRange = "${jei_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "geckolib"
+mandatory = true
+versionRange = "${geckolib_version_range}"
 ordering = "AFTER"
 side = "BOTH"

@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "caerula_delight:oceanized_wither_bone"
+    },
+    {
+      "item": "caerula_arbor:nethersea_soul_sand"
+    },
+    {
+      "item": "caerula_arbor:nethersea_soul_sand"
+    },
+    {
+      "item": "caerula_arbor:nethersea_soul_sand"
+    },
+    {
+      "item": "caerula_arbor:trail_mushroom"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "caerula_delight:oceanized_wither_bone_broth"
+  }
+}

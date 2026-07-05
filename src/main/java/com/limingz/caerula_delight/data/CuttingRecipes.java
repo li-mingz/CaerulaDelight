@@ -31,14 +31,14 @@ public class CuttingRecipes
      */
     private static void cuttingAnimalItems(Consumer<FinishedRecipe> consumer) {
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(RegisterItems.SEA_TERROR_CUTLET.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), RegisterItems.SEA_TERROR_CUTLET_STRIPS.get(), 2)
-                .build(consumer);
+                .save(consumer);
         CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(RegisterItems.COOKED_SEA_TERROR_CUTLET.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), RegisterItems.COOKED_SEA_TERROR_CUTLET_STRIPS.get(), 2)
-                .build(consumer);
+                .save(consumer);
 
 //        // 火腿 -> 猪肉 + 骨头
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.HAM.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), Items.PORKCHOP, 2)
 //                .addResult(Items.BONE)
-//                .build(consumer);
+//                .save(consumer);
     }
 
     /**
@@ -47,22 +47,22 @@ public class CuttingRecipes
     private static void cuttingVegetables(Consumer<FinishedRecipe> consumer) {
 //        // 卷心菜 -> 卷心菜叶
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.CABBAGE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.CABBAGE_LEAF.get(), 2)
-//                .build(consumer);
+//                .save(consumer);
 //        // 稻穗 -> 大米 + 稻草
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.RICE_PANICLE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.RICE.get(), 1)
 //                .addResult(ModItems.STRAW.get())
-//                .build(consumer);
+//                .save(consumer);
 //        // 西瓜 -> 9个西瓜片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(Items.MELON), Ingredient.of(ForgeTags.TOOLS_KNIVES), Items.MELON_SLICE, 9)
-//                .build(consumer);
+//                .save(consumer);
 //        // 南瓜 -> 4个南瓜片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(Items.PUMPKIN), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.PUMPKIN_SLICE.get(), 4)
-//                .build(consumer);
+//                .save(consumer);
 //        // 蘑菇菌落 -> 5个蘑菇
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.BROWN_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), Items.BROWN_MUSHROOM, 5)
-//                .build(consumer);
+//                .save(consumer);
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.RED_MUSHROOM_COLONY.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), Items.RED_MUSHROOM, 5)
-//                .build(consumer);
+//                .save(consumer);
     }
 
     /**
@@ -74,19 +74,19 @@ public class CuttingRecipes
 //                .build(consumer, new ResourceLocation(FarmersDelight.MODID, "cutting/tag_dough"));
 //        // 海带卷 -> 海带卷切片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.KELP_ROLL.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.KELP_ROLL_SLICE.get(), 3)
-//                .build(consumer);
+//                .save(consumer);
 //        // 蛋糕 -> 7个蛋糕切片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(Items.CAKE), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.CAKE_SLICE.get(), 7)
-//                .build(consumer);
+//                .save(consumer);
 //        // 苹果派 -> 4个苹果派切片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.APPLE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.APPLE_PIE_SLICE.get(), 4)
-//                .build(consumer);
+//                .save(consumer);
 //        // 甜浆果芝士蛋糕 -> 4个切片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.SWEET_BERRY_CHEESECAKE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.SWEET_BERRY_CHEESECAKE_SLICE.get(), 4)
-//                .build(consumer);
+//                .save(consumer);
 //        // 巧克力派 -> 4个切片
 //        CuttingBoardRecipeBuilder.cuttingRecipe(Ingredient.of(ModItems.CHOCOLATE_PIE.get()), Ingredient.of(ForgeTags.TOOLS_KNIVES), ModItems.CHOCOLATE_PIE_SLICE.get(), 4)
-//                .build(consumer);
+//                .save(consumer);
     }
 
 }
