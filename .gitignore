@@ -26,3 +26,5 @@ forge*changelog.txt
 libs
 run-data
 src/generated/resources/.cache
+.claude
+.vscode
