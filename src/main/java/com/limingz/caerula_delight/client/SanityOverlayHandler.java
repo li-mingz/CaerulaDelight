@@ -22,7 +22,7 @@ import org.lwjgl.opengl.GL11;
  * 参考 AppleSkin，在玩家手持改变 sanity 的食物时，
  * 于 Caerula Arbor 的神经损伤条上叠加预览：
  * - 扣除 sanity：红色闪烁，透明度 0 ~ 0.85
- * - 恢复 sanity：绿色闪烁，透明度 0 ~ 0.85
+ * - 恢复 sanity：青绿色闪烁，透明度 0 ~ 0.85
  */
 @Mod.EventBusSubscriber(modid = CaerulaDelightMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SanityOverlayHandler {
@@ -116,10 +116,12 @@ public class SanityOverlayHandler {
 
             RenderSystem.enableBlend();
             RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+            // 损失用亮红，恢复用青绿色，避免和原 bar 颜色融合
             RenderSystem.setShaderColor(
-                    isLoss ? 1.0F : 0.15F,
+                    isLoss ? 1.0F : 0.0F,
                     isLoss ? 0.15F : 1.0F,
-                    isLoss ? 0.15F : 0.15F,
+                    isLoss ? 0.15F : 0.6F,
                     alpha
             );
 
