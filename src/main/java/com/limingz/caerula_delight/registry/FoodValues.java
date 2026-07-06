@@ -31,8 +31,6 @@ public class FoodValues {
 
     public static final FoodProperties SEA_TERROR_BLOOD = (new FoodProperties.Builder())
             .alwaysEat()
-            .effect(() -> new MobEffectInstance(MobEffects.WITHER, DURATION_30S, 0), 1.0F)
-            .effect(() -> new MobEffectInstance(CaerulaArborModMobEffects.SANITY_IMMUE.get(), DURATION_5M, 0), 1.0F)
             .nutrition(1)
             .saturationMod(0.3f)
             .build();
