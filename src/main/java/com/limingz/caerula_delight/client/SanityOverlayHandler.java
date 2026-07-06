@@ -3,7 +3,7 @@ package com.limingz.caerula_delight.client;
 import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.util.SanityCalculator;
 import com.limingz.caerula_delight.util.SanityEffect;
-import com.limingz.caerula_delight.util.SanityFoodRegistry;
+import com.limingz.caerula_delight.registry.SanityFoodRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.mcreator.caerulaarbor.configuration.CaerulaConfigsConfiguration;
 import net.minecraft.client.Minecraft;

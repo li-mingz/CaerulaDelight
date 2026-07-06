@@ -1,4 +1,4 @@
-package com.limingz.caerula_delight.util;
+package com.limingz.caerula_delight.registry;
 
 import com.limingz.caerula_delight.registry.RegisterItems;
 import net.mcreator.caerulaarbor.init.CaerulaArborModItems;

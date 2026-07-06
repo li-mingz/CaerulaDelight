@@ -2,9 +2,9 @@ package com.limingz.caerula_delight.client;
 
 import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.item.*;
-import com.limingz.caerula_delight.util.LightFoodRegistry;
+import com.limingz.caerula_delight.registry.LightFoodRegistry;
+import com.limingz.caerula_delight.registry.SanityFoodRegistry;
 import com.limingz.caerula_delight.util.SanityEffect;
-import com.limingz.caerula_delight.util.SanityFoodRegistry;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;

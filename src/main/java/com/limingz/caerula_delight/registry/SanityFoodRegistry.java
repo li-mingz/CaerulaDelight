@@ -1,6 +1,7 @@
-package com.limingz.caerula_delight.util;
+package com.limingz.caerula_delight.registry;
 
 import com.limingz.caerula_delight.registry.RegisterItems;
+import com.limingz.caerula_delight.util.SanityEffect;
 import net.mcreator.caerulaarbor.init.CaerulaArborModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -53,20 +54,35 @@ public final class SanityFoodRegistry {
         put(CaerulaArborModItems.OCEAN_PEDUNCLE, SanityEffect.immediate(-60.0));
         put(CaerulaArborModItems.RELIC_CURSED_GLOWBODY, SanityEffect.immediate(-500.0));
         put(CaerulaArborModItems.TRAIL_GOLDEN_APPLE, SanityEffect.immediate(-80.0));
-        // 染痕的附魔金苹果：立即扣 120，随后 SANITY_IMMUNE 持续回满 sanity。
+        // 染痕的附魔金苹果：立即扣 120，随后 SANITY_IMMUNE 在 2400 tick 内
+        // 每 tick 回复 5 点 sanity，共回复 12000（实际受上限 1000 约束）。
         put(CaerulaArborModItems.ENCHANTED_TRAIL_GOLDEN_APPLE,
                 SanityEffect.immediate(-120.0),
-                SanityEffect.sustained(1000.0, 2400));
+                SanityEffect.sustained(12000.0, 2400));
         put(CaerulaArborModItems.NETHERSEA_BISCUIT, SanityEffect.immediate(-50.0));
+        // 溟痕冰激凌：食用后 100 tick 内持续扣除 100 点 sanity。
+        put(CaerulaArborModItems.NETHERSEA_ICECREAM, SanityEffect.sustained(-100.0, 100));
+        // 巧克力冰激凌：食用后 40 tick 内持续扣除 40 点 sanity。
+        put(CaerulaArborModItems.CHOCOLATE_ICECREAM, SanityEffect.sustained(-40.0, 40));
         put(CaerulaArborModItems.NETHERSEA_COFFEE, SanityEffect.immediate(-45.0));
         // 落溟强效咖啡：首次 -75，延迟后若效果仍在再 -125。
         put(CaerulaArborModItems.NETHERSEA_STIMUTANT,
                 SanityEffect.immediate(-75.0),
                 SanityEffect.delayed(-125.0, 100));
+        // 溟痕粽：食用后 100 tick 内持续扣除 100 点 sanity。
+        put(CaerulaArborModItems.NETHERSEA_RICE_DUMPLING, SanityEffect.sustained(-100.0, 100));
+        // 溟痕皮蛋：食用后 60 tick 内持续扣除 60 点 sanity。
+        put(CaerulaArborModItems.NETHERSEA_PRESERVED_EGG, SanityEffect.sustained(-60.0, 60));
+        // 溟痕蛋羹：食用后 80 tick 内持续扣除 80 点 sanity。
+        put(CaerulaArborModItems.NETHERSEA_EGG_CUSTARD, SanityEffect.sustained(-80.0, 80));
         put(CaerulaArborModItems.TRAIL_APPLE, SanityEffect.immediate(-75.0));
         put(CaerulaArborModItems.TRAIL_CAKE_PIECE, SanityEffect.immediate(-150.0));
         put(CaerulaArborModItems.FAKE_EGG, SanityEffect.immediate(-160.0));
         put(CaerulaArborModItems.SEA_TRAIL_MOR, SanityEffect.immediate(-160.0));
+        // 发光腕足：食用后 600 tick 内持续扣除 600 点 sanity。
+        put(CaerulaArborModItems.ELITE_PEDUNCLE, SanityEffect.sustained(-600.0, 600));
+        // 滋养苹果派：立即扣除 75 点 sanity。
+        put(CaerulaArborModItems.NOURISHED_APPLE_PIE, SanityEffect.immediate(-75.0));
 
         // Caerula Arbor — 恢复 sanity 的食物
         put(CaerulaArborModItems.FRUIT_JELLY, SanityEffect.immediate(150.0));
@@ -75,6 +91,16 @@ public final class SanityFoodRegistry {
         put(CaerulaArborModItems.CARAMEL_CAKE_PIECE, SanityEffect.immediate(125.0));
         put(CaerulaArborModItems.CARAMEL_RICE_DUMPLING, SanityEffect.immediate(50.0));
         put(CaerulaArborModItems.CARAMEL_BISCUIT, SanityEffect.immediate(25.0));
+        // 焦糖海嗣：立即回复 15 点 sanity。
+        put(CaerulaArborModItems.CARAMEL_MOR, SanityEffect.immediate(15.0));
+        // 烤腕足：立即回复 15 点 sanity。
+        put(CaerulaArborModItems.COOKED_PEDUNCLE, SanityEffect.immediate(15.0));
+        // 海嗣汤：SANITY_IMMUNE 持续 400 tick，期间回满 sanity。
+        put(CaerulaArborModItems.SEABORN_SOUP, SanityEffect.sustained(1000.0, 400));
+        // 回响果冻：立即回复 300 点 sanity。
+        put(CaerulaArborModItems.ECHO_JELLY, SanityEffect.immediate(300.0));
+        // 附魔复合几丁质苹果：SANITY_IMMUNE 持续 300 tick，期间回满 sanity。
+        put(CaerulaArborModItems.ENCHANTED_COMPLEX_CHITIN_APPLE, SanityEffect.sustained(1000.0, 300));
     }
 
     private static void put(RegistryObject<Item> item, SanityEffect... effects) {
