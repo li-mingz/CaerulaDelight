@@ -2,6 +2,7 @@ package com.limingz.caerula_delight.client;
 
 import com.limingz.caerula_delight.CaerulaDelightMod;
 import com.limingz.caerula_delight.item.*;
+import com.limingz.caerula_delight.util.LightFoodRegistry;
 import com.limingz.caerula_delight.util.SanityEffect;
 import com.limingz.caerula_delight.util.SanityFoodRegistry;
 import com.mojang.datafixers.util.Either;
@@ -29,17 +30,12 @@ public class ClientForgeEventSubscriber {
             }
         }
 
-        if (stack.getItem() instanceof GlowSeaPuddingItem) {
-            if (event.getTooltipElements().stream().anyMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
-                return;
+        Double lightDelta = LightFoodRegistry.getLightDelta(stack);
+        if (lightDelta != null) {
+            if (event.getTooltipElements().stream().noneMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
+                String sign = lightDelta > 0.0 ? "+" : "";
+                event.getTooltipElements().add(Either.right(new LightTooltip(sign + Math.round(lightDelta))));
             }
-            event.getTooltipElements().add(Either.right(new LightTooltip("+20")));
-        }
-        if (stack.getItem() instanceof StarfieldShavedIceItem) {
-            if (event.getTooltipElements().stream().anyMatch(e -> e.right().isPresent() && e.right().get() instanceof LightTooltip)) {
-                return;
-            }
-            event.getTooltipElements().add(Either.right(new LightTooltip("+15")));
         }
     }
 

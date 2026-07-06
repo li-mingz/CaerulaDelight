@@ -9,6 +9,7 @@ import com.limingz.caerula_delight.registry.ModMobEffects;
 import com.limingz.caerula_delight.registry.ModParticles;
 import com.limingz.caerula_delight.registry.ModRecipeSerializers;
 import com.limingz.caerula_delight.registry.RegisterItems;
+import com.limingz.caerula_delight.util.LightFoodRegistry;
 import com.limingz.caerula_delight.util.SanityFoodRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,8 +30,10 @@ public class CaerulaDelightMod
         IEventBus modEventBus = context.getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
 
-        modEventBus.addListener((FMLCommonSetupEvent event) ->
-                SanityFoodRegistry.initialize());
+        modEventBus.addListener((FMLCommonSetupEvent event) -> {
+            SanityFoodRegistry.initialize();
+            LightFoodRegistry.initialize();
+        });
 
         RegisterItems.ITEMS.register(modEventBus);
         ModBlock.BLOCKS.register(modEventBus);

@@ -1,6 +1,6 @@
 package com.limingz.caerula_delight.item;
 
-import com.limingz.caerula_delight.util.LightUtils;
+import net.mcreator.caerulaarbor.procedures.RevivesPlayerLightsProcedure;
 import com.limingz.caerula_delight.registry.ModBlock;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -96,7 +96,7 @@ public class GlowSeaPuddingItem extends ConsumableItem
 
     @Override
     public void affectConsumer(ItemStack stack, Level level, LivingEntity consumer) {
-        LightUtils.addLight(consumer, 20d);
+        RevivesPlayerLightsProcedure.execute(consumer, 20.0);
     }
 
 
