@@ -68,6 +68,21 @@ public final class SanityCalculator {
     }
 
     /**
+     * 预测使用会改变 sanity 的物品后的最终 sanity 基础值。
+     *
+     * @param player 目标玩家
+     * @param delta  基础变化量（负数为扣，正数为回）
+     * @return 结算后的 sanity 值，范围 [-1, 1000]
+     */
+    public static double predictSanityAfterDelta(Player player, double delta) {
+        double current = getCurrentSanity(player);
+        if (delta >= 0.0) {
+            return Math.min(current + delta, MAX_SANITY);
+        }
+        return predictSanityAfterDeduction(player, -delta);
+    }
+
+    /**
      * 预测使用减少 sanity 物品后的最终 sanity 基础值。
      *
      * @param player       目标玩家

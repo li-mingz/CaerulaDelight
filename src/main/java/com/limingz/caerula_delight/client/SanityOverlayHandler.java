@@ -1,8 +1,8 @@
 package com.limingz.caerula_delight.client;
 
 import com.limingz.caerula_delight.CaerulaDelightMod;
-import com.limingz.caerula_delight.api.ISanityAffecting;
 import com.limingz.caerula_delight.util.SanityCalculator;
+import com.limingz.caerula_delight.util.SanityFoodRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.mcreator.caerulaarbor.configuration.CaerulaConfigsConfiguration;
 import net.minecraft.client.Minecraft;
@@ -19,8 +19,10 @@ import net.minecraftforge.fml.common.Mod;
 import org.lwjgl.opengl.GL11;
 
 /**
- * 参考 AppleSkin，在玩家手持减少 sanity 的食物时，
- * 于 Caerula Arbor 的神经损伤条上叠加红色闪烁预览。
+ * 参考 AppleSkin，在玩家手持改变 sanity 的食物时，
+ * 于 Caerula Arbor 的神经损伤条上叠加预览：
+ * - 扣除 sanity：红色闪烁，透明度 0 ~ 0.85
+ * - 恢复 sanity：绿色闪烁，透明度 0 ~ 0.85
  */
 @Mod.EventBusSubscriber(modid = CaerulaDelightMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class SanityOverlayHandler {
@@ -68,17 +70,16 @@ public class SanityOverlayHandler {
             return;
         }
 
-        ISanityAffecting sanityItem = (ISanityAffecting) heldItem.getItem();
-        double delta = sanityItem.getSanityDelta(heldItem, player);
-        if (delta >= 0) {
+        Double delta = SanityFoodRegistry.getDelta(heldItem);
+        if (delta == null || delta == 0.0) {
             resetFlash();
             return;
         }
 
-        renderSanityLossPreview(event.getGuiGraphics(), player, -delta);
+        renderSanityPreview(event.getGuiGraphics(), player, delta);
     }
 
-    private static void renderSanityLossPreview(GuiGraphics guiGraphics, Player player, double rawDeduction) {
+    private static void renderSanityPreview(GuiGraphics guiGraphics, Player player, double delta) {
         int w = Minecraft.getInstance().getWindow().getGuiScaledWidth();
         int h = Minecraft.getInstance().getWindow().getGuiScaledHeight();
 
@@ -91,7 +92,7 @@ public class SanityOverlayHandler {
         int fillY = y + FILL_OFFSET_Y;
 
         double currentSanity = SanityCalculator.getCurrentSanity(player);
-        double projectedSanity = SanityCalculator.predictSanityAfterDeduction(player, rawDeduction);
+        double projectedSanity = SanityCalculator.predictSanityAfterDelta(player, delta);
 
         // sanity 满时原模组不绘制 bar，这里补画底框和当前填充
         boolean barVisibleByMod = currentSanity < MAX_SANITY;
@@ -103,25 +104,32 @@ public class SanityOverlayHandler {
             }
         }
 
-        int projectedWidth = (int) (FILL_MAX_WIDTH * (projectedSanity / MAX_SANITY));
         int currentWidth = (int) (FILL_MAX_WIDTH * (currentSanity / MAX_SANITY));
-        int lossWidth = currentWidth - projectedWidth;
+        int projectedWidth = (int) (FILL_MAX_WIDTH * (projectedSanity / MAX_SANITY));
+        int previewWidth = Math.abs(projectedWidth - currentWidth);
 
-        if (lossWidth > 0) {
+        if (previewWidth > 0) {
+            boolean isLoss = delta < 0.0;
+            int previewX = fillX + Math.min(currentWidth, projectedWidth);
+            float u = (float) Math.min(currentWidth, projectedWidth);
             float alpha = 0.85F * flashAlpha;
 
             RenderSystem.enableBlend();
             RenderSystem.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-            RenderSystem.setShaderColor(1.0F, 0.15F, 0.15F, alpha);
+            RenderSystem.setShaderColor(
+                    isLoss ? 1.0F : 0.15F,
+                    isLoss ? 0.15F : 1.0F,
+                    isLoss ? 0.15F : 0.15F,
+                    alpha
+            );
 
-            // 动态截取纹理 u，使红色条纹理与底层白色条对齐
             guiGraphics.blit(
                     SANITY_BAR,
-                    fillX + projectedWidth,
+                    previewX,
                     fillY,
-                    (float) projectedWidth,
+                    u,
                     FILL_V,
-                    lossWidth,
+                    previewWidth,
                     FILL_HEIGHT,
                     TEXTURE_WIDTH,
                     TEXTURE_HEIGHT
@@ -134,11 +142,11 @@ public class SanityOverlayHandler {
 
     private static ItemStack getHeldSanityItem(Player player) {
         ItemStack main = player.getMainHandItem();
-        if (!main.isEmpty() && main.getItem() instanceof ISanityAffecting) {
+        if (!main.isEmpty() && SanityFoodRegistry.getDelta(main) != null) {
             return main;
         }
         ItemStack off = player.getOffhandItem();
-        if (!off.isEmpty() && off.getItem() instanceof ISanityAffecting) {
+        if (!off.isEmpty() && SanityFoodRegistry.getDelta(off) != null) {
             return off;
         }
         return ItemStack.EMPTY;

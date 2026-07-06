@@ -3,7 +3,7 @@ package com.limingz.caerula_delight.client;
 import com.limingz.caerula_delight.CaerulaDelightMod;
 
 import com.limingz.caerula_delight.item.*;
-import com.limingz.caerula_delight.registry.RegisterItems;
+import com.limingz.caerula_delight.util.SanityFoodRegistry;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,11 +17,12 @@ public class ClientForgeEventSubscriber {
     @SubscribeEvent
     public static void onRenderTooltip(RenderTooltipEvent.GatherComponents event) {
         ItemStack stack = event.getItemStack();
-        if (stack.getItem() instanceof SeaTerrorBloodItem) {
-            event.getTooltipElements().add(Either.right(new SanityTooltip("-1001")));
-        }
-        if (stack.getItem() == RegisterItems.OCEANIZED_WITHER_BONE_BROTH.get()) {
-            event.getTooltipElements().add(Either.right(new SanityTooltip("-1001")));
+        Double sanityDelta = SanityFoodRegistry.getDelta(stack);
+        if (sanityDelta != null && sanityDelta != 0.0) {
+            if (event.getTooltipElements().stream().noneMatch(e -> e.right().isPresent() && e.right().get() instanceof SanityTooltip)) {
+                String sign = sanityDelta > 0 ? "+" : "";
+                event.getTooltipElements().add(Either.right(new SanityTooltip(sign + Math.round(sanityDelta))));
+            }
         }
 
         if (stack.getItem() instanceof GlowSeaPuddingItem) {

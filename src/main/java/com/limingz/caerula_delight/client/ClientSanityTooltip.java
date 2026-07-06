@@ -29,7 +29,8 @@ public class ClientSanityTooltip implements ClientTooltipComponent {
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         // sanity_icon.png is 16x16; draw 8x8 icon on screen
         guiGraphics.blit(TEXTURE, x, y, 8, 8, 0, 0, 16, 16, 16, 16);
-        guiGraphics.drawString(font, this.text, x + 12, y, 0xFF5555, false);
+        int color = this.text.startsWith("+") ? 0x55FF55 : 0xFF5555;
+        guiGraphics.drawString(font, this.text, x + 12, y, color, false);
     }
 }
 
