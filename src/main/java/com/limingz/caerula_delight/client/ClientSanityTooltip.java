@@ -10,9 +10,13 @@ public class ClientSanityTooltip implements ClientTooltipComponent {
     @SuppressWarnings("deprecation")
     private static final ResourceLocation TEXTURE = new ResourceLocation("caerula_arbor", "textures/screens/sanity_icon.png");
     private final String text;
+    private final int color;
 
     public ClientSanityTooltip(SanityTooltip tooltip) {
-        this.text = tooltip.text();
+        String sign = tooltip.delta() > 0.0 ? "+" : "";
+        String suffix = tooltip.suffix();
+        this.text = sign + Math.round(tooltip.delta()) + (suffix.isEmpty() ? "" : " " + suffix);
+        this.color = tooltip.delta() > 0.0 ? 0x55FF55 : 0xFF5555;
     }
 
     @Override
@@ -29,8 +33,6 @@ public class ClientSanityTooltip implements ClientTooltipComponent {
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         // sanity_icon.png is 16x16; draw 8x8 icon on screen
         guiGraphics.blit(TEXTURE, x, y, 8, 8, 0, 0, 16, 16, 16, 16);
-        int color = this.text.startsWith("+") ? 0x55FF55 : 0xFF5555;
         guiGraphics.drawString(font, this.text, x + 12, y, color, false);
     }
 }
-
